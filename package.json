@@ -1,5 +1,5 @@
 {
-  "name": "mean-project-frontend",
+  "name": "global-repo-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:mean-project-frontend": "node dist/mean-project-frontend/server/server.mjs"
+    "serve:ssr:global-repo-frontend": "node dist/global-repo-frontend/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,
@@ -28,17 +28,19 @@
     "@angular/compiler": "^21.1.0",
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
-    "@angular/platform-browser": "^21.1.0",
+    "@angular/platform-browser": "21.1.0",
     "@angular/platform-server": "^21.1.0",
     "@angular/router": "^21.1.0",
-    "@angular/ssr": "^21.1.5",
+    "@angular/ssr": "^21.1.2",
+    "@ant-design/icons-angular": "^21.0.0",
     "express": "^5.1.0",
+    "ng-zorro-antd": "^21.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.1.5",
-    "@angular/cli": "^21.1.5",
+    "@angular/build": "^21.1.2",
+    "@angular/cli": "^21.1.2",
     "@angular/compiler-cli": "^21.1.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
