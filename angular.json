@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "01989a2e-fed2-4247-8450-2622f8a993ba"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "mean-project-frontend": {
+    "global-repo-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -29,9 +30,6 @@
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
             "ssr": {
               "entry": "src/server.ts"
             }
@@ -64,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mean-project-frontend:build:production"
+              "buildTarget": "global-repo-frontend:build:production"
             },
             "development": {
-              "buildTarget": "mean-project-frontend:build:development"
+              "buildTarget": "global-repo-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
