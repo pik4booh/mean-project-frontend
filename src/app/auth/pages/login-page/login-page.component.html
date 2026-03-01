@@ -11,14 +11,14 @@
     
 
     <div class="field-group">
-      <app-auth-email-input
+      <app-email-input
         id="login-email"
         label="Email address"
         placeholder="you@shop.com"
         autocomplete="email"
         formControlName="email"
         [invalid]="isInvalid('email')"
-      ></app-auth-email-input>
+      ></app-email-input>
       <app-form-error
         [errors]="form.controls.email.errors"
         [touched]="form.controls.email.touched"
@@ -27,14 +27,14 @@
     </div>
 
     <div class="field-group">
-      <app-auth-password-input
+      <app-password-input
         id="login-password"
         label="Password"
         placeholder="Enter your password"
         autocomplete="current-password"
         formControlName="password"
         [invalid]="isInvalid('password')"
-      ></app-auth-password-input>
+      ></app-password-input>
       <app-form-error
         [errors]="form.controls.password.errors"
         [touched]="form.controls.password.touched"

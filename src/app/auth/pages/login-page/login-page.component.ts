@@ -6,8 +6,8 @@ import { finalize, take } from 'rxjs';
 
 import { AuthService } from '../../services/auth.service';
 import { AuthFormLayoutComponent } from '../../components/auth-form-layout/auth-form-layout.component';
-import { AuthEmailInputComponent } from '../../components/auth-email-input/auth-email-input.component';
-import { AuthPasswordInputComponent } from '../../components/auth-password-input/auth-password-input.component';
+import { EmailInputComponent } from '../../../shared/components/inputs/email-input/email-input.component';
+import { PasswordInputComponent } from '../../../shared/components/inputs/password-input/password-input.component';
 import { FormErrorComponent } from '../../../shared/components/form-error/form-error.component';
 import { SubmitButtonComponent } from '../../../shared/components/buttons/submit-button/submit-button.component';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
@@ -29,8 +29,8 @@ type LoginFormGroup = {
     ReactiveFormsModule,
     RouterLink,
     AuthFormLayoutComponent,
-    AuthEmailInputComponent,
-    AuthPasswordInputComponent,
+    EmailInputComponent,
+    PasswordInputComponent,
     FormErrorComponent,
     SubmitButtonComponent,
     NzCheckboxModule,
@@ -89,7 +89,7 @@ export class LoginPageComponent {
               next: res => {
                 console.log('Current user', res.user.role);
                 this.authSession.resetCache(); // reset cache to force refresh of user info in guards and other parts of the app
-                if (res.user.role === 'SHOP') this.router.navigate(['/owner/dashboard']);
+                if (res.user.role === 'SHOP') this.router.navigate(['/shop/dashboard']);
                 else if (res.user.role === 'ADMIN') this.router.navigate(['/admin/dashboard']);
                 else window.location.href = '/'; // full reload to reset any cached state, can be improved with a proper state management and route guards
                 

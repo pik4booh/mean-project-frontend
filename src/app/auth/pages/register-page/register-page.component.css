@@ -8,46 +8,25 @@
   display: flex;
   flex-direction: column;
 }
-
-:host ::ng-deep app-submit-button button {
-  background: linear-gradient(135deg, #1e3a8a, #1e40af) !important;
-  border: none !important;
-  border-radius: 14px !important;
-  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.4);
-  transition: all 200ms ease;
-  height: 48px !important;
-  font-weight: 600;
-}
-
-:host ::ng-deep app-submit-button button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
-}
-
-:host ::ng-deep nz-alert {
-  background: rgba(254, 242, 242, 0.7) !important;
-  border: 1px solid rgba(220, 38, 38, 0.3) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(10px);
+.api-error {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--danger-bg);
+  color: var(--danger);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
 }
 
 .auth-footer {
   margin-top: 16px;
-  text-align: center;
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .auth-footer a {
-  color: #1e40af;
+  color: var(--brand);
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.auth-footer a:hover {
-  text-decoration: underline;
-  color: #1e3a8a;
 }
 
 .auth-footer a:focus-visible {

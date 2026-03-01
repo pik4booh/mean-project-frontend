@@ -6,10 +6,10 @@ import { finalize, take } from 'rxjs';
 
 import { AuthService } from '../../services/auth.service';
 import { AuthFormLayoutComponent } from '../../components/auth-form-layout/auth-form-layout.component';
-import { AuthEmailInputComponent } from '../../components/auth-email-input/auth-email-input.component';
-import { AuthPasswordInputComponent } from '../../components/auth-password-input/auth-password-input.component';
-import { AuthTextInputComponent } from '../../components/auth-text-input/auth-text-input.component';
-import { AuthSelectInputComponent, SelectOption } from '../../components/auth-select-input/auth-select-input.component';
+import { EmailInputComponent } from '../../../shared/components/inputs/email-input/email-input.component';
+import { PasswordInputComponent } from '../../../shared/components/inputs/password-input/password-input.component';
+import { TextInputComponent } from '../../../shared/components/inputs/text-input/text-input.component';
+import { SelectInputComponent, SelectOption } from '../../../shared/components/inputs/select-input/select-input.component';
 import { FormErrorComponent } from '../../../shared/components/form-error/form-error.component';
 import { SubmitButtonComponent } from '../../../shared/components/buttons/submit-button/submit-button.component';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
@@ -32,10 +32,10 @@ type RegisterFormGroup = {
     ReactiveFormsModule,
     RouterLink,
     AuthFormLayoutComponent,
-    AuthEmailInputComponent,
-    AuthPasswordInputComponent,
-    AuthTextInputComponent,
-    AuthSelectInputComponent,
+    EmailInputComponent,
+    PasswordInputComponent,
+    TextInputComponent,
+    SelectInputComponent,
     FormErrorComponent,
     SubmitButtonComponent,
     NzAlertModule
