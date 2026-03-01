@@ -45,6 +45,7 @@ export class AuthSessionService {
       }),
       shareReplay(1)
     );
+
     return this.meOnce$;
   }
 
