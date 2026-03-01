@@ -11,7 +11,6 @@
           width="320"
           height="220"
           [alt]="item.name"
-          priority
         />
       </a>
     </ng-template>
@@ -37,13 +36,11 @@
       [disabled]="item.stock <= 0"
       (click)="onAddToCart()"
     >
-      <span>
-        @if (justAdded()) {
-          Added
-        } @else {
-          Add to cart
-        }
-      </span>
+      @if (justAdded()) {
+        Added
+      } @else {
+        Add to cart
+      }
     </button>
   </nz-card>
 }

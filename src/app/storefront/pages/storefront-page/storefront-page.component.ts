@@ -1,5 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { catchError, combineLatest, finalize, map, of, shareReplay, startWith, switchMap, take, tap } from 'rxjs';
+
+import { AuthStateService } from '../../../core/services/auth-state.service';
+import {
+  ProductService,
+  SearchQuery,
+  createDefaultSearchQuery
+} from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { AdvancedSearchPanelComponent } from '../../components/advanced-search/advanced-search-panel.component';
 import { TopProductsSectionComponent } from '../../components/top-products-section/top-products-section.component';
 import { ProductGridComponent } from '../../components/product-grid/product-grid.component';
 import { PaginationComponent } from '../../../shared/components/pagination/pagination.component';

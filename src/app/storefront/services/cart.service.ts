@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap, map } from 'rxjs';
+import { BehaviorSubject, Observable, of, delay, tap, map } from 'rxjs';
 
 export interface CartItemsState {
   [productId: string]: number;
@@ -7,8 +7,7 @@ export interface CartItemsState {
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  private readonly storageKey = 'storefront_cart_items';
-  private readonly itemsSubject = new BehaviorSubject<CartItemsState>(this.loadInitialState());
+  private readonly itemsSubject = new BehaviorSubject<CartItemsState>({});
   readonly cartItems$ = this.itemsSubject.asObservable();
 
   // (Optionnel) dérivés utiles
@@ -20,6 +19,7 @@ export class CartService {
   /** IMPORTANT : on garde la signature et le comportement */
   addItem(productId: string, qty: number): Observable<void> {
     return of(undefined).pipe(
+      delay(200),
       tap(() => {
         const current = this.itemsSubject.getValue();
         const nextQty = (current[productId] ?? 0) + qty;
@@ -31,8 +31,6 @@ export class CartService {
         } else {
           this.itemsSubject.next({ ...current, [productId]: nextQty });
         }
-
-        this.persistState(this.itemsSubject.getValue());
 
         console.log('CartService.addItem', productId, qty);
       })
@@ -54,6 +52,7 @@ export class CartService {
     const safeQty = Math.floor(Number(qty) || 0);
 
     return of(undefined).pipe(
+      delay(200),
       tap(() => {
         const current = this.itemsSubject.getValue();
 
@@ -64,8 +63,6 @@ export class CartService {
           this.itemsSubject.next({ ...current, [productId]: safeQty });
         }
 
-        this.persistState(this.itemsSubject.getValue());
-
         console.log('CartService.updateQuantity', productId, safeQty);
       })
     );
@@ -74,13 +71,13 @@ export class CartService {
   /** Supprime une ligne du panier */
   removeItem(productId: string): Observable<void> {
     return of(undefined).pipe(
+      delay(200),
       tap(() => {
         const current = this.itemsSubject.getValue();
         if (!(productId in current)) return;
 
         const { [productId]: _, ...rest } = current;
         this.itemsSubject.next(rest);
-        this.persistState(rest);
 
         console.log('CartService.removeItem', productId);
       })
@@ -90,41 +87,11 @@ export class CartService {
   /** Vide le panier */
   clear(): Observable<void> {
     return of(undefined).pipe(
+      delay(200),
       tap(() => {
         this.itemsSubject.next({});
-        this.persistState({});
         console.log('CartService.clear');
       })
     );
-  }
-
-  private loadInitialState(): CartItemsState {
-    try {
-      const raw = localStorage.getItem(this.storageKey);
-      if (!raw) {
-        return {};
-      }
-
-      const parsed = JSON.parse(raw) as unknown;
-      if (!parsed || typeof parsed !== 'object') {
-        return {};
-      }
-
-      return Object.entries(parsed as Record<string, unknown>).reduce<CartItemsState>((acc, [id, value]) => {
-        const quantity = Math.floor(Number(value));
-        if (quantity > 0) {
-          acc[id] = quantity;
-        }
-        return acc;
-      }, {});
-    } catch {
-      return {};
-    }
-  }
-
-  private persistState(state: CartItemsState): void {
-    try {
-      localStorage.setItem(this.storageKey, JSON.stringify(state));
-    } catch {}
   }
 }

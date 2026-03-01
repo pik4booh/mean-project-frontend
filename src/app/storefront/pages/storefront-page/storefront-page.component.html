@@ -1,11 +1,11 @@
 <app-storefront-layout class="store__content">
       <section class="storefront__results">
-        @if (state.topProducts$ | async; as topProducts) {
+        @if (topProducts$ | async; as topProducts) {
           <app-top-products-section
             [products]="topProducts"
-            [addingProductId]="state.addingProductId()"
-            [addedProductId]="state.addedProductId()"
-            (addToCart)="state.onAddToCart($event)"
+            [addingProductId]="addingProductId()"
+            [addedProductId]="addedProductId()"
+            (addToCart)="onAddToCart($event)"
           ></app-top-products-section>
         }
       </section>
@@ -13,30 +13,30 @@
       <section class="storefront__results">
         <div class="results__header">
           <h2>All products</h2>
-          @if (state.loading()) {
+          @if (loading()) {
             <span class="results__status">Loading...</span>
           }
         </div>
 
-        @if (state.error()) {
-          <div class="results__error" role="alert">{{ state.error() }}</div>
+        @if (error()) {
+          <div class="results__error" role="alert">{{ error() }}</div>
         }
 
-        @if (state.products$ | async; as products) {
+        @if (products$ | async; as products) {
           <app-product-grid
             [products]="products"
-            [addingProductId]="state.addingProductId()"
-            [addedProductId]="state.addedProductId()"
-            (addToCart)="state.onAddToCart($event)"
+            [addingProductId]="addingProductId()"
+            [addedProductId]="addedProductId()"
+            (addToCart)="onAddToCart($event)"
           ></app-product-grid>
         }
 
-        @if (state.totalItems$ | async; as totalItems) {
+        @if (totalItems$ | async; as totalItems) {
           <app-pagination
-            [pageIndex]="state.pageIndex()"
-            [pageSize]="state.pageSize()"
+            [pageIndex]="pageIndex()"
+            [pageSize]="pageSize()"
             [totalItems]="totalItems"
-            (pageChange)="state.onPageChange($event)"
+            (pageChange)="onPageChange($event)"
           ></app-pagination>
         }
     </section>

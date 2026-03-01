@@ -7,50 +7,36 @@ import { CartPage } from './pages/cart-page/cart-page';
 import { CheckoutPage } from './pages/checkout-page/checkout-page';
 import { OrderPage } from './pages/order-page/order-page';
 import { HistoryPage } from './pages/history-page/history-page';
-import { authGuard } from '../core/guards/auth.guard';
-import { roleGuard } from '../core/guards/role.guard';
 
 export const STOREFRONT_ROUTES: Routes = [
   {
     path: 'history',
     component: HistoryPage,
-    title: 'History',
-    canMatch: [authGuard, roleGuard],
-    data:{ roles: ['BUYER'] }
+    title: 'History'
   },
   {
     path: 'orders',
     component: OrderPage,
-    title: 'Orders',
-    canMatch: [authGuard, roleGuard],
-    data:{ roles: ['BUYER'] }
+    title: 'Orders'
   },
   {
     path: 'checkout',
     component: CheckoutPage,
-    title: 'Checkout',
-    canMatch: [authGuard, roleGuard],
-    data:{ roles: ['BUYER'] }
+    title: 'Checkout'
   },
   {
     path: 'cart',
     component: CartPage,
-    title: 'Cart',
-    canMatch: [authGuard, roleGuard],
-    data:{ roles: ['BUYER'] }
+    title: 'Cart'
   },
   { path: 'product/:id',
     component: ProductDetailsPage,
-    title: 'Product Details',
-    canMatch: [authGuard, roleGuard],
-    data:{ roles: ['BUYER'] }
+    title: 'Product Details'
   },
   {
     path: 'manufacturers',
     component: ManufacturePage,
-    title: 'Manufacturers',
-    canMatch: [authGuard, roleGuard],
-    data:{ roles: ['BUYER'] }
+    title: 'Manufacturers'
   },
   {
     path: '',
