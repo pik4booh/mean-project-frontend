@@ -14,7 +14,6 @@ import {
 } from 'rxjs';
 
 import {
-  BACKEND_PRODUCT_PAGE_SIZE,
   ProductService,
   SearchQuery,
   createDefaultSearchQuery,
@@ -28,7 +27,7 @@ export class StorefrontStateService {
 
   readonly query = signal<SearchQuery>(createDefaultSearchQuery());
   readonly pageIndex = signal(1);
-  readonly pageSize = signal(BACKEND_PRODUCT_PAGE_SIZE);
+  readonly pageSize = signal(12);
 
   readonly loading = signal(false);
   readonly error = signal<string | null>(null);
