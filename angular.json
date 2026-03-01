@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "mean-project-frontend": {
+    "global-repo-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -29,9 +29,6 @@
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
             "ssr": {
               "entry": "src/server.ts"
             }
@@ -64,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mean-project-frontend:build:production"
+              "buildTarget": "global-repo-frontend:build:production"
             },
             "development": {
-              "buildTarget": "mean-project-frontend:build:development"
+              "buildTarget": "global-repo-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
