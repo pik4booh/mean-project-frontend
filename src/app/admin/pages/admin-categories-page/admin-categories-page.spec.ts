@@ -9,10 +9,6 @@ describe('AdminCategoriesPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AdminCategoriesPage]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(AdminCategoriesPage);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

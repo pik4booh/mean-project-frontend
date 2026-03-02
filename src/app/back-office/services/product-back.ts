@@ -44,7 +44,6 @@ export class ProductsBackService {
     categoryId: 'all',
     status: 'all',
   });
-
   private readonly kpisSubject = new BehaviorSubject<ProductsKpis>({
     processedOrdersPercent: 15,
     PENDINGOrdersPercent: 4,
@@ -57,16 +56,11 @@ export class ProductsBackService {
   readonly productsFiltered$ = combineLatest([this.productsSubject, this.querySubject]).pipe(
     map(([products, q]) => {
       const s = q.search.trim().toLowerCase();
-
       return products.filter((p) => {
         const matchSearch = !s || p.name.toLowerCase().includes(s);
         const matchCategory = q.categoryId === 'all' || p.categoryId === q.categoryId;
         const matchStatus = q.status === 'all' || p.status === q.status;
-
-        return matchSearch && matchCategory && matchStatus;
       });
-    })
-  );
 
   readonly vm$ = combineLatest({
     kpis: this.kpis$,
@@ -85,7 +79,6 @@ export class ProductsBackService {
         ? { ...p, status: (p.status === 'ACTIVE' ? 'inACTIVE' : 'ACTIVE') as ProductStatus }
         : p
     );
-
     this.productsSubject.next(next);
   }
 
@@ -96,32 +89,3 @@ export class ProductsBackService {
         : 'p-' + Date.now();
 
     const next: Product[] = [{ id, ...product }, ...this.productsSubject.value];
-    this.productsSubject.next(next);
-  }
-
-  delete(productId: string) {
-    const next: Product[] = this.productsSubject.value.filter((p) => p.id !== productId);
-    this.productsSubject.next(next);
-  }
-
-  update(productId: string, patch: Partial<Product>) {
-    const next: Product[] = this.productsSubject.value.map((p) =>
-      p.id === productId ? ({ ...p, ...patch } as Product) : p
-    );
-    this.productsSubject.next(next);
-  }
-
-  private seedProducts(): Product[] {
-    const img = (seed: string) => `https://picsum.photos/seed/${seed}/600/380`;
-
-    const data: Product[] = [
-      { id: 'p1', imageUrl: img('pc'), name: 'Gaming Computer', price: 0, stock: 12, categoryId: 'cat-it', status: 'ACTIVE' },
-      { id: 'p2', imageUrl: img('scaffold'), name: 'Scaffold Service', price: 0, stock: 3, categoryId: 'cat-construction', status: 'ACTIVE' },
-      { id: 'p3', imageUrl: img('container'), name: 'Container Transport', price: 0, stock: 0, categoryId: 'cat-logistics', status: 'inACTIVE' },
-      { id: 'p4', imageUrl: img('keyboard'), name: 'Keyboard', price: 49, stock: 5, categoryId: 'cat-it', status: 'ACTIVE' },
-      { id: 'p5', imageUrl: img('mouse'), name: 'Mouse', price: 19, stock: 2, categoryId: 'cat-it', status: 'ACTIVE' },
-    ];
-
-    return data;
-  }
-}
