@@ -1,7 +1,7 @@
 <div class="chips">
   <div
     class="chip"
-    *ngFor="let c of categories; trackBy: trackByCategory"
+    *ngFor="let c of categories"
     [class.active]="c.status==='active'"
     [class.inactive]="c.status==='inactive'"
   >

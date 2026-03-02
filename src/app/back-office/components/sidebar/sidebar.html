@@ -43,31 +43,29 @@
         </button>
 
         <nav class="nav">
-          <ng-container *ngIf="shopNav$ | async as shopNav">
-            <ng-container *ngFor="let item of shopNav">
-              <a
-                *ngIf="isLink(item)"
-                class="item"
-                [routerLink]="item.route"
-                routerLinkActive="ACTIVE"
-              >
-                <span class="mi">{{ item.icon }}</span>
-                <span class="label" *ngIf="!collapsed">{{ item.label }}</span>
-              </a>
-            </ng-container>
+          <ng-container *ngFor="let item of getShopNav(selectedShop)">
+            <a
+              *ngIf="isLink(item)"
+              class="item"
+              [routerLink]="item.route"
+              routerLinkActive="ACTIVE"
+            >
+              <span class="mi">{{ item.icon }}</span>
+              <span class="label" *ngIf="!collapsed">{{ item.label }}</span>
+            </a>
           </ng-container>
         </nav>
       </ng-container>
 
       <ng-template #noShopContext>
         <nav class="nav">
-          <ng-container *ngFor="let item of baseNav">
+          <ng-container *ngFor="let item of getBaseNav()">
             <a
               *ngIf="isLink(item)"
               class="item"
               [routerLink]="item.route"
               routerLinkActive="ACTIVE"
-              [routerLinkActiveOptions]="exactLinkActiveOptions"
+              [routerLinkActiveOptions]="{ exact: true }"
             >
               <span class="mi">{{ item.icon }}</span>
               <span class="label" *ngIf="!collapsed">{{ item.label }}</span>

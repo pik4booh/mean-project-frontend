@@ -7,7 +7,7 @@
         [attr.aria-label]="'Voir le produit ' + item.name"
       >
         <img
-          [ngSrc]="pictureUrl + item.imageUrl"
+          [ngSrc]="item.imageUrl"
           width="320"
           height="220"
           [alt]="item.name"
@@ -16,15 +16,7 @@
       </a>
     </ng-template>
 
-    <nz-card-meta [nzTitle]="item.name" [nzDescription]="storeNameTpl"></nz-card-meta>
-
-    <ng-template #storeNameTpl>
-      @if (item.shopId) {
-        <a [routerLink]="['/manufacturers', item.shopId]">{{ item.storeName }}</a>
-      } @else {
-        <span>{{ item.storeName }}</span>
-      }
-    </ng-template>
+    <nz-card-meta [nzTitle]="item.name" [nzDescription]="item.storeName"></nz-card-meta>
 
     <div class="product-card__meta">
       <span class="product-card__price">{{ item.price | currency }}</span>

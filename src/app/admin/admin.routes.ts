@@ -8,11 +8,6 @@ export const ADMIN_ROUTES: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'shops' },
       {
-        path: 'commissions',
-        loadComponent: () =>
-          import('./pages/admin-comissions-page/admin-comissions-page').then(m => m.AdminCommissionsPage),
-      },
-      {
         path: 'customers',
         loadComponent: () =>
           import('./pages/admin-customers-page/admin-customers-page').then(m => m.AdminCustomersPage),
