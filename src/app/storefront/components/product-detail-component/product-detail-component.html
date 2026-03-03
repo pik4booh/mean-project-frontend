@@ -39,7 +39,7 @@
     <aside class="detail-info-card">
       <div class="price">
         <div class="price-label">Prix</div>
-        <div class="price-value">{{ product.price | currency:'USD' }}</div>
+        <div class="price-value">{{ product.price | currency:'EUR' }}</div>
       </div>
 
       <div class="meta">
@@ -82,7 +82,7 @@
 
       <div class="total">
         <span>Total</span>
-        <strong>{{ total | currency:'USD' }}</strong>
+        <strong>{{ total | currency:'EUR' }}</strong>
       </div>
 
       <button class="cta" type="button" (click)="onAddToCart()" [disabled]="isOutOfStock || isAdding">
