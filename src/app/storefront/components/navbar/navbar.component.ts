@@ -26,7 +26,7 @@ export class NavbarComponent {
   private readonly authService = inject(AuthService);
   private readonly session = inject(AuthSessionService);
   readonly cartCount$ = this.cartService.totalQuantity$;
-  readonly brand = input<string>('Global Market');
+  readonly brand = input<string>('Hello Mercado');
   readonly user = input<User | null>(null);
   readonly logout = output<void>();
 
