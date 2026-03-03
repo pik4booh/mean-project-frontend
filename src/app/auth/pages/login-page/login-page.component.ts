@@ -50,8 +50,8 @@ export class LoginPageComponent {
   
 
   readonly form: FormGroup<LoginFormGroup> = this.fb.group({
-    email: this.fb.control('', [Validators.required, Validators.email]),
-    password: this.fb.control('', [Validators.required, Validators.minLength(6)]),
+    email: this.fb.control('atlas@gmail.com', [Validators.required, Validators.email]),
+    password: this.fb.control('password!', [Validators.required, Validators.minLength(6)]),
     rememberMe: this.fb.control(false)
   });
 
