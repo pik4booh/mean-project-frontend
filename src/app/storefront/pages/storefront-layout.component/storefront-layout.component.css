@@ -1,36 +1,29 @@
 .storefront {
-  /* background: transparent; */
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  background-attachment: fixed;
   min-height: 100vh;
-  padding: 104px 0 48px;
+  padding: 24px 0 72px;
+  background:
+    radial-gradient(880px 420px at 0% 0%, rgba(255, 255, 255, 0.64), transparent 70%),
+    radial-gradient(760px 420px at 100% 0%, rgba(255, 255, 255, 0.38), transparent 68%),
+    linear-gradient(120deg, #0ea5e9, #2563eb);
+  color: #0f172a;
 }
 
-.app__nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-}
-.center__bar {
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: center;
+.storefront__shell {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .storefront__filters {
   position: sticky;
-  top: 120px;
+  top: 24px;
+  align-self: start;
 }
 
 .storefront__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
   display: grid;
-  grid-template-columns: minmax(240px, 280px) 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  gap: 28px;
   align-items: start;
 }
 
@@ -38,63 +31,39 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-.storefront__results {
-  background: var(--surface-glass);
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(16px);
-}
-
-.results__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.results__header h2 {
-  margin: 0;
-  font-size: 20px;
-  color: var(--text-strong);
-}
-
-.results__status {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.results__error {
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  background: var(--danger-bg);
-  color: var(--danger);
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 14px;
+  min-width: 0;
+  padding-bottom: 96px;
 }
 
 @media (max-width: 960px) {
+  .storefront {
+    padding-top: 20px;
+  }
+
   .storefront__container {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .storefront__filters {
     position: static;
   }
+
+  .storefront__content {
+    padding-bottom: 112px;
+  }
 }
 
 @media (max-width: 600px) {
-  .storefront__container {
-    padding: 0 16px;
+  .storefront {
+    padding: 16px 0 64px;
   }
 
-  .storefront__results {
-    padding: 16px;
+  .storefront__shell {
+    padding: 0 14px;
+  }
+
+  .storefront__content {
+    padding-bottom: 128px;
   }
 }

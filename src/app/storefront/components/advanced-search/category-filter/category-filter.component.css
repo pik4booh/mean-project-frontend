@@ -1,30 +1,64 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
 }
 
 .field__label {
-  font-size: 13px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #475569;
 }
 
-.field__options {
-  display: grid;
-  gap: 8px;
+.field__select {
+  display: block;
 }
 
-.field__option {
-  display: flex;
+:host ::ng-deep .field__select .ant-select-selector {
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  border-radius: 14px !important;
+  min-height: 46px !important;
+  padding: 6px 12px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text-strong);
 }
 
-.field__option input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--brand);
+:host ::ng-deep .field__select .ant-select-selection-placeholder {
+  color: #94a3b8 !important;
+}
+
+:host ::ng-deep .field__select .ant-select-selection-item {
+  color: #0f172a !important;
+}
+
+:host ::ng-deep .field__select.ant-select-multiple .ant-select-selection-item {
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  background: rgba(14, 165, 233, 0.1);
+  border-radius: 999px;
+  color: #075985 !important;
+  font-weight: 600;
+}
+
+:host ::ng-deep .field__select.ant-select-focused .ant-select-selector,
+:host ::ng-deep .field__select:hover .ant-select-selector {
+  border-color: rgba(14, 165, 233, 0.72) !important;
+}
+
+:host ::ng-deep .field__select.ant-select-focused {
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.16);
+  border-radius: 14px;
+}
+
+:host ::ng-deep .field__select .ant-select-arrow,
+:host ::ng-deep .field__select .ant-select-clear {
+  color: #64748b;
+}
+
+@media (max-width: 600px) {
+  :host ::ng-deep .field__select .ant-select-selector {
+    min-height: 44px !important;
+  }
 }

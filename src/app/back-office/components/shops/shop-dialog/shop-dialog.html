@@ -1,14 +1,16 @@
 <div class="overlay" (click)="onBackdropClick()">
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
-      <h3>Creer une boutique</h3>
-      <button class="x" type="button" (click)="cancel.emit()">x</button>
+      <h3 class="title">Create shop</h3>
+      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Close dialog">&times;</button>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="alert" *ngIf="submitError">{{ submitError }}</div>
+
+    <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="img-block">
-        <div class="preview">
-          <img [src]="previewUrl || defaultLogoUrl" alt="Shop logo preview" />
+        <div class="preview preview--product" [class.preview--empty]="!(previewUrl || defaultLogoUrl)">
+          <img *ngIf="previewUrl || defaultLogoUrl; else emptyPreview" [src]="previewUrl || defaultLogoUrl" alt="Shop logo preview" />
         </div>
 
         <div class="img-actions">
@@ -19,11 +21,11 @@
             (dragleave)="onDragLeave($event)"
             (drop)="onDrop($event)"
           >
-            <p class="dropzone-title">Glissez-deposez un logo ici</p>
+            <p class="dropzone-title">Add shop logo</p>
             <p class="dropzone-hint">PNG, JPG, WEBP | Max 2MB</p>
 
             <div class="dropzone-actions">
-              <label class="file-btn">
+              <label class="file-btn" [class.is-disabled]="submitting">
                 {{ hasCustomLogo ? 'Replace logo' : 'Upload logo' }}
                 <input type="file" accept="image/*" (change)="onPickFile($event)" [disabled]="submitting" hidden />
               </label>
@@ -39,71 +41,72 @@
           </div>
         </div>
       </div>
+      <ng-template #emptyPreview>
+        <div class="preview-placeholder">No image selected</div>
+      </ng-template>
 
       <div class="grid">
         <label class="field">
-          <span>Nom</span>
-          <input formControlName="name" />
+          <span>Name</span>
+          <input formControlName="name" [disabled]="submitting" />
         </label>
 
         <label class="field">
-          <span>Categorie</span>
-          <select formControlName="categoryId">
+          <span>Category</span>
+          <select formControlName="categoryId" [disabled]="submitting">
             <option *ngFor="let c of categories" [value]="c._id">{{ c.name }}</option>
           </select>
         </label>
 
-        <label class="field">
+        <label class="field field--full">
           <span>Description</span>
-          <input formControlName="description" />
+          <textarea formControlName="description" rows="4" [disabled]="submitting"></textarea>
         </label>
 
         <label class="field">
           <span>Opening Hours</span>
-          <input formControlName="openingHours" placeholder="Mon-Sat 09:00-18:00" />
+          <input formControlName="openingHours" placeholder="Mon-Sat 09:00-18:00" [disabled]="submitting" />
         </label>
       </div>
 
       <div class="grid" formGroupName="contact">
         <label class="field">
           <span>Contact Phone</span>
-          <input formControlName="phone" />
+          <input formControlName="phone" [disabled]="submitting" />
         </label>
 
         <label class="field">
           <span>Contact Email</span>
-          <input formControlName="email" type="email" />
+          <input formControlName="email" type="email" [disabled]="submitting" />
         </label>
 
-        <label class="field">
+        <label class="field field--full">
           <span>Contact Address</span>
-          <input formControlName="address" />
+          <input formControlName="address" [disabled]="submitting" />
         </label>
       </div>
 
       <div class="grid" formGroupName="socials">
         <label class="field">
           <span>Facebook</span>
-          <input formControlName="facebook" />
+          <input formControlName="facebook" [disabled]="submitting" />
         </label>
 
         <label class="field">
           <span>Instagram</span>
-          <input formControlName="instagram" />
+          <input formControlName="instagram" [disabled]="submitting" />
         </label>
 
         <label class="field">
           <span>Website</span>
-          <input formControlName="website" />
+          <input formControlName="website" [disabled]="submitting" />
         </label>
       </div>
 
-      <p class="error" *ngIf="submitError">{{ submitError }}</p>
-
       <div class="actions">
-        <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Annuler</button>
+        <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Cancel</button>
         <button type="submit" class="btn primary" [disabled]="submitting">
-          {{ submitting ? 'Creation...' : 'Creer' }}
+          {{ submitting ? 'Submitting...' : 'Create' }}
         </button>
       </div>
     </form>

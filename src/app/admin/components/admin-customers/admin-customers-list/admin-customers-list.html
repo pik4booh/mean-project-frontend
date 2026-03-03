@@ -1,46 +1,64 @@
-<div class="list">
-  <!-- header row like screenshot -->
-  <div class="list-head">
-    <div></div>
-    <div class="col">TYPE</div>
-    <div class="col right">STATUS</div>
-  </div>
-
-  <div
-    class="row"
-    *ngFor="let c of customers"
-    [class.active]="isActiveRow(c.id)"
-    (click)="select.emit(c.id)"
-  >
-    <div class="left">
-      <img class="avatar" [src]="c.avatarUrl" [alt]="c.fullName" />
-      <div class="meta">
-        <div class="name">{{ c.fullName }}</div>
-        <div class="company">{{ c.company }}</div>
+<div class="directory" *ngIf="customers.length; else empty">
+  <section class="featured-panel" *ngIf="selectedCustomer as selected">
+    <div class="featured-head">
+      <div class="featured-avatar">{{ initials(selected) }}</div>
+      <div class="featured-copy">
+        <p class="eyebrow">Selected profile</p>
+        <h3>{{ selected.fullName }}</h3>
+        <p class="featured-role">{{ roleLabel(selected) }}</p>
       </div>
     </div>
 
-    <div class="type">{{ c.type }}</div>
-
-    <div class="right-side">
-      <span class="status" [class.active]="c.status==='active'" [class.inactive]="c.status==='inactive'" [class.banned]="c.status==='banned'">
-        {{ c.status | uppercase }}
-      </span>
-
-      <!-- actions visible like screenshot (mostly on active row) -->
-      <div class="actions" [class.show]="isActiveRow(c.id)" (click)="$event.stopPropagation()">
-        <button type="button" class="icon-btn" title="Message"><span class="mi">chat_bubble_outline</span></button>
-        <button type="button" class="icon-btn" title="Favorite"><span class="mi">star_outline</span></button>
-        <button type="button" class="icon-btn" title="Toggle status" (click)="toggleStatus.emit(c.id)">
-          <span class="mi">toggle_on</span>
-        </button>
-        <button type="button" class="icon-btn danger" title="Delete" (click)="remove.emit(c.id)">
-          <span class="mi">delete</span>
-        </button>
-        <button type="button" class="icon-btn" title="More"><span class="mi">more_horiz</span></button>
+    <div class="featured-metrics">
+      <div class="metric">
+        <span class="metric-label">Email</span>
+        <strong>{{ selected.email || 'No email provided' }}</strong>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Phone</span>
+        <strong>{{ selected.phone || 'No phone provided' }}</strong>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Joined</span>
+        <strong>{{ formatDate(selected.createdAt) }}</strong>
       </div>
     </div>
+  </section>
+
+  <div class="cards-head">
+    <div>
+      <p class="eyebrow">Directory</p>
+      <h4>Browse all customers</h4>
+    </div>
+    <span class="cards-count">{{ customers.length }} profiles</span>
   </div>
 
-  <a class="all" href="javascript:void(0)">All customers →</a>
+  <div class="cards-grid">
+    <button
+      class="customer-card"
+      type="button"
+      *ngFor="let customer of customers; trackBy: trackById"
+      [class.is-active]="isActiveRow(customer.id)"
+      (click)="select.emit(customer.id)"
+    >
+      <div class="customer-card__top">
+        <span class="customer-avatar">{{ initials(customer) }}</span>
+      </div>
+
+      <div class="customer-card__body">
+        <strong class="customer-name">{{ customer.fullName }}</strong>
+        <span class="customer-role">{{ roleLabel(customer) }}</span>
+        <span class="customer-email">{{ customer.email || 'No email provided' }}</span>
+      </div>
+
+      <div class="customer-card__foot">
+        <span class="customer-phone">{{ customer.phone || 'No phone' }}</span>
+        <span class="customer-date">{{ formatDate(customer.createdAt) }}</span>
+      </div>
+    </button>
+  </div>
 </div>
+
+<ng-template #empty>
+  <div class="empty">No users found.</div>
+</ng-template>

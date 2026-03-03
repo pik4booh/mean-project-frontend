@@ -17,7 +17,6 @@ import {
   ProductStatus,
   ProductUpsertPayload,
 } from '../../../services/product-back';
-import { env } from 'process';
 import { environment } from '../../../../../environments/environment';
 
 export type ProductDialogMode = 'create' | 'edit' | 'details';
@@ -64,13 +63,38 @@ export class ProductDialogComponent implements OnChanges, OnDestroy {
   }
 
   get title(): string {
-    if (this.mode === 'create') return 'Créer un produit';
-    if (this.mode === 'edit') return 'Modifier le produit';
-    return 'Détails du produit';
+    if (this.mode === 'create') return 'Create product';
+    if (this.mode === 'edit') return 'Edit product';
+    return 'Product details';
   }
 
   get combinedImages(): string[] {
     return [...this.retainedImages, ...this.newImages.map((i) => i.previewUrl)];
+  }
+
+  get primaryPreviewImage(): string {
+    if (this.isDetailsMode) {
+      return this.detailsActiveImage || this.product?.imageUrl || '';
+    }
+
+    return this.combinedImages[0] ?? '';
+  }
+
+  get primaryPreviewSrc(): string {
+    const previewImage = this.primaryPreviewImage;
+    if (!previewImage) return '';
+
+    return previewImage.startsWith('blob:') ? previewImage : this.pictureUrl + previewImage;
+  }
+
+  get selectedImagesLabel(): string {
+    const totalImages = this.retainedImages.length + this.newImages.length;
+    if (!totalImages) return '';
+    if (totalImages === 1) {
+      return this.newImages[0]?.name || '1 image selected';
+    }
+
+    return `${totalImages} images selected`;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
