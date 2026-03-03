@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, combineLatest, map, of, tap, throwError } 
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
-export type SortDir = 'Plus récent' | 'Plus ancien';
+export type SortDir = 'newest' | 'oldest';
 
 export interface Customer {
   id: string;
