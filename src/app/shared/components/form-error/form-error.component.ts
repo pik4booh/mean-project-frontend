@@ -23,22 +23,22 @@ export class FormErrorComponent {
     }
 
     if (errors['required']) {
-      return 'This field is required.';
+      return 'Ce champ est obligatoire.';
     }
 
     if (errors['email']) {
-      return 'Enter a valid email address.';
+      return 'Saisissez une adresse e-mail valide.';
     }
 
     if (errors['minlength']) {
       const requiredLength = errors['minlength'].requiredLength as number;
-      return `Use at least ${requiredLength} characters.`;
+      return `Utilisez au moins ${requiredLength} caracteres.`;
     }
 
     if (errors['pattern']) {
-      return 'Use a valid format.';
+      return 'Utilisez un format valide.';
     }
 
-    return 'Invalid value.';
+    return 'Valeur invalide.';
   }
 }

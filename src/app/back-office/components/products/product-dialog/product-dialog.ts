@@ -63,9 +63,9 @@ export class ProductDialogComponent implements OnChanges, OnDestroy {
   }
 
   get title(): string {
-    if (this.mode === 'create') return 'Create product';
-    if (this.mode === 'edit') return 'Edit product';
-    return 'Product details';
+    if (this.mode === 'create') return 'Creer un produit';
+    if (this.mode === 'edit') return 'Modifier le produit';
+    return 'Details du produit';
   }
 
   get combinedImages(): string[] {
@@ -91,10 +91,10 @@ export class ProductDialogComponent implements OnChanges, OnDestroy {
     const totalImages = this.retainedImages.length + this.newImages.length;
     if (!totalImages) return '';
     if (totalImages === 1) {
-      return this.newImages[0]?.name || '1 image selected';
+      return this.newImages[0]?.name || '1 image selectionnee';
     }
 
-    return `${totalImages} images selected`;
+    return `${totalImages} images selectionnees`;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

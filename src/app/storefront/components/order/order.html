@@ -1,5 +1,5 @@
 <section class="orders">
-  <h2 class="title">My Orders</h2>
+  <h2 class="title">Mes commandes</h2>
 
   <div class="orders-list">
     <article class="order-card" *ngFor="let o of (orders$ | async) ?? []; trackBy: trackById">
@@ -9,7 +9,7 @@
           <div class="order-meta">
             <span>{{ o.createdAt | date:'medium' }}</span>
             <span class="dot">&bull;</span>
-            <span>{{ o.items.length }} item(s)</span>
+            <span>{{ o.items.length }} article(s)</span>
           </div>
         </div>
 
@@ -18,7 +18,7 @@
           <div class="order-total">{{ o.total | currency:currencyCode }}</div>
 
           <button class="details-btn" type="button" (click)="toggleDetails(o._id)">
-            {{ expandedId === o._id ? 'Hide details' : 'View details' }}
+            {{ expandedId === o._id ? 'Masquer les details' : 'Voir les details' }}
           </button>
         </div>
       </div>
@@ -37,7 +37,7 @@
                   <div class="order-meta">
                     <span>{{ o.createdAt | date:'medium' }}</span>
                     <span class="dot">&bull;</span>
-                    <span>{{ o.items.length }} item(s)</span>
+                    <span>{{ o.items.length }} article(s)</span>
                   </div>
                 </div>
 
@@ -45,29 +45,29 @@
                   <span [class]="badgeClass(o.status)">{{ o.status }}</span>
                   <div class="order-total">{{ o.total | currency:currencyCode }}</div>
                   <button class="details-btn close-btn" type="button" (click)="toggleDetails(o._id)">
-                    Hide details
+                    Masquer les details
                   </button>
                 </div>
               </div>
 
               <div class="surface customer-card">
-                <div class="block-title">Customer</div>
-                <div class="kv"><span class="k">Phone</span><span class="v">{{ o.phone }}</span></div>
-                <div class="kv"><span class="k">Address</span><span class="v">{{ o.address }}</span></div>
+                <div class="block-title">Client</div>
+                <div class="kv"><span class="k">Telephone</span><span class="v">{{ o.phone }}</span></div>
+                <div class="kv"><span class="k">Adresse</span><span class="v">{{ o.address }}</span></div>
               </div>
             </div>
 
             <div class="surface payment-card">
-              <div class="block-title">Payment</div>
-              <div class="kv"><span class="k">Method</span><span class="v">{{ o.paymentMethod }}</span></div>
-              <div class="kv"><span class="k">Status</span><span class="v">{{ o.status }}</span></div>
+              <div class="block-title">Paiement</div>
+              <div class="kv"><span class="k">Methode</span><span class="v">{{ o.paymentMethod }}</span></div>
+              <div class="kv"><span class="k">Statut</span><span class="v">{{ o.status }}</span></div>
             </div>
           </div>
 
           <div class="dialog-body">
             <div class="summary surface">
               <div class="sum-row">
-                <span>Subtotal</span>
+                <span>Sous-total</span>
                 <span>{{ orderSubtotal(o) | currency:currencyCode }}</span>
               </div>
               <div class="sum-row strong">
@@ -77,7 +77,7 @@
             </div>
 
             <div class="surface items-panel">
-              <div class="block-title items-title">Items</div>
+              <div class="block-title items-title">Articles</div>
 
               <div class="items">
                 <div class="item" *ngFor="let it of o.items; trackBy: trackByItemId">
@@ -86,7 +86,7 @@
                   <div class="item-info">
                     <div class="item-name">{{ it.name }}</div>
                     <div class="item-meta">
-                      Qty {{ it.qty }} x {{ it.priceSnapshot | currency:currencyCode }}
+                      Qte {{ it.qty }} x {{ it.priceSnapshot | currency:currencyCode }}
                     </div>
                   </div>
 

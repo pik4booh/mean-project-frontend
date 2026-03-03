@@ -24,7 +24,7 @@ export type SelectOption = {
 export class SelectInputComponent implements ControlValueAccessor {
   readonly label = input<string>('');
   readonly id = input<string>('');
-  readonly placeholder = input<string>('Select an option');
+  readonly placeholder = input<string>('Selectionnez une option');
   readonly options = input<SelectOption[]>([]);
   readonly invalid = input<boolean>(false);
 

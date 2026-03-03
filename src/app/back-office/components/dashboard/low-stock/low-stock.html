@@ -1,11 +1,11 @@
 <div class="stock-overview">
   <div>
-    <p class="eyebrow">Inventory watch</p>
+    <p class="eyebrow">Suivi des stocks</p>
   </div>
 
   <div class="overview-badges" *ngIf="products.length">
-    <span class="badge">{{ products.length }} monitored</span>
-    <span class="badge badge-alert" *ngIf="urgentCount">{{ urgentCount }} critical</span>
+    <span class="badge">{{ products.length }} surveilles</span>
+    <span class="badge badge-alert" *ngIf="urgentCount">{{ urgentCount }} critiques</span>
   </div>
 </div>
 
@@ -32,14 +32,14 @@
     </div>
 
     <div class="card-bottom">
-      <span class="hint">Restock gap</span>
+      <span class="hint">Manque au stock</span>
       <span class="gap" [class.is-zero]="shortage(product) === 0">
-        {{ shortage(product) }} item(s)
+        {{ shortage(product) }} article(s)
       </span>
     </div>
   </article>
 </div>
 
 <ng-template #empty>
-  <div class="empty">No low-stock products.</div>
+  <div class="empty">Aucun produit en stock faible.</div>
 </ng-template>

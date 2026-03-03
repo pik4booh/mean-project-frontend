@@ -1,8 +1,8 @@
 <section class="page" *ngIf="pageVm$ | async as vm">
   <div class="page-head">
     <div>
-      <h1 class="page-title">Dashboard</h1>
-      <p class="page-subtitle">Admin overview</p>
+      <h1 class="page-title">Tableau de bord</h1>
+      <p class="page-subtitle">Vue d'ensemble admin</p>
     </div>
   </div>
 
@@ -43,11 +43,11 @@
         <div class="chart-body">
           <div class="chart-summary" *ngIf="vm.graphState.data as graph">
             <div>
-              <div class="eyebrow">Filter</div>
+              <div class="eyebrow">Filtre</div>
               <div class="summary-value">{{ graph.filter }}</div>
             </div>
             <div>
-              <div class="eyebrow">Period</div>
+              <div class="eyebrow">Periode</div>
               <div class="summary-value">
                 {{ graph.year }}<span *ngIf="graph.month"> / {{ graph.month }}</span>
               </div>
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div *ngIf="vm.graphState.loading" class="muted chart-feedback">Loading chart...</div>
+          <div *ngIf="vm.graphState.loading" class="muted chart-feedback">Chargement du graphique...</div>
           <div *ngIf="vm.graphState.error" class="muted chart-feedback">{{ vm.graphState.error }}</div>
           <app-revenue-chart
             *ngIf="vm.graphState.data as graph"
@@ -67,43 +67,43 @@
         </div>
       </app-dashboard-card>
 
-      <app-dashboard-card class="c5 rank-card" title="Top shops">
+      <app-dashboard-card class="c5 rank-card" title="Boutiques phares">
         <app-top-products [products]="dashboard.topMagasins"></app-top-products>
       </app-dashboard-card>
 
-      <app-mini-tile class="t1" title="Top month">
+      <app-mini-tile class="t1" title="Meilleur mois">
         <div class="tile-stack">
-          <div class="big">{{ dashboard.topMonth?.month ?? 'No month' }}</div>
+          <div class="big">{{ dashboard.topMonth?.month ?? 'Aucun mois' }}</div>
           <div class="accent">{{ dashboard.topMonth?.year ?? '-' }}</div>
-          <div class="muted">{{ dashboard.topMonth?.ordersCount ?? 0 }} orders</div>
+          <div class="muted">{{ dashboard.topMonth?.ordersCount ?? 0 }} commandes</div>
         </div>
       </app-mini-tile>
 
-      <app-mini-tile class="t2" title="Top year">
+      <app-mini-tile class="t2" title="Meilleure annee">
         <div class="tile-stack">
           <div class="big">{{ dashboard.topYear?.year ?? '-' }}</div>
           <div class="muted">{{ dashboard.topYear?.soldK ?? 0 }}K commissions</div>
         </div>
       </app-mini-tile>
 
-      <app-mini-tile class="t3" title="Active shops">
+      <app-mini-tile class="t3" title="Boutiques actives">
         <div class="tile-stack">
           <div class="big">{{ dashboard.activeShops }}</div>
-          <div class="muted">{{ dashboard.totalShops }} shops total</div>
+          <div class="muted">{{ dashboard.totalShops }} boutiques au total</div>
         </div>
       </app-mini-tile>
 
-      <app-dashboard-card class="q1 stat-card" title="Active shops">
+      <app-dashboard-card class="q1 stat-card" title="Boutiques actives">
         <div class="stat-card-body">
           <div class="big">{{ dashboard.activeShops }}</div>
-          <div class="muted">Active / {{ dashboard.totalShops }} total</div>
+          <div class="muted">Actives / {{ dashboard.totalShops }} total</div>
         </div>
       </app-dashboard-card>
 
-      <app-dashboard-card class="q2 stat-card" title="Rejected shops">
+      <app-dashboard-card class="q2 stat-card" title="Boutiques rejetees">
         <div class="stat-card-body">
           <div class="big">{{ dashboard.rejectedShops }}</div>
-          <div class="muted">Pending: {{ dashboard.pendingShops }}</div>
+          <div class="muted">En attente : {{ dashboard.pendingShops }}</div>
         </div>
       </app-dashboard-card>
 
@@ -123,8 +123,8 @@
 
   <ng-template #dashboardStateBlock>
     <div class="grid">
-      <app-dashboard-card class="c1" title="Dashboard">
-        <div class="muted" *ngIf="vm.dashboardState.loading">Loading dashboard...</div>
+      <app-dashboard-card class="c1" title="Tableau de bord">
+        <div class="muted" *ngIf="vm.dashboardState.loading">Chargement du tableau de bord...</div>
         <div class="muted" *ngIf="vm.dashboardState.error as error">{{ error }}</div>
       </app-dashboard-card>
     </div>
@@ -132,5 +132,5 @@
 </section>
 
 <ng-template #emptyTopShops>
-  <div class="muted">No shops yet.</div>
+  <div class="muted">Aucune boutique pour le moment.</div>
 </ng-template>

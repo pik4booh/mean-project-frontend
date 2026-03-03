@@ -6,7 +6,7 @@
       [disabled]="pageIndex() <= 1"
       (click)="goToPage(pageIndex() - 1)"
     >
-      Prev
+      Precedent
     </button>
 
     <div class="pagination__pages">
@@ -28,7 +28,7 @@
       [disabled]="pageIndex() >= totalPages()"
       (click)="goToPage(pageIndex() + 1)"
     >
-      Next
+      Suivant
     </button>
   </nav>
 }

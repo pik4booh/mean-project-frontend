@@ -1,10 +1,10 @@
 <section class="cart">
   <header class="cart__header">
-    <h2 class="title">Your cart</h2>
+    <h2 class="title">Votre panier</h2>
   </header>
 
   <ng-container *ngIf="lines$ | async as lines">
-    <p *ngIf="lines.length === 0" class="empty">Your cart is empty.</p>
+    <p *ngIf="lines.length === 0" class="empty">Votre panier est vide.</p>
 
     <div class="cart__grid" *ngIf="lines.length > 0">
       <section class="cart__listShell">
@@ -27,8 +27,8 @@
             <div class="info" *ngIf="line.product.info">{{ line.product.info }}</div>
 
             <div class="row bottom">
-              <div class="qty" role="group" [attr.aria-label]="'Quantity for ' + line.product.name">
-                <button type="button" (click)="decrement(line.productId)" aria-label="Decrease">-</button>
+              <div class="qty" role="group" [attr.aria-label]="'Quantite pour ' + line.product.name">
+                <button type="button" (click)="decrement(line.productId)" aria-label="Diminuer">-</button>
 
                 <input
                   type="number"
@@ -36,21 +36,21 @@
                   [ngModel]="line.quantity"
                   (ngModelChange)="updateQty(line.productId, $event)"
                   [ngModelOptions]="{ standalone: true }"
-                  aria-label="Quantity"
+                  aria-label="Quantite"
                 />
 
-                <button type="button" (click)="increment(line.productId)" aria-label="Increase">+</button>
+                <button type="button" (click)="increment(line.productId)" aria-label="Augmenter">+</button>
               </div>
 
               <div class="lineTotal">
-                Line total:
+                Total de la ligne :
                 <strong>
                   {{ (line.product.price * line.quantity) | currency: currencyCode:'symbol':'1.2-2' }}
                 </strong>
               </div>
 
               <button class="remove" type="button" (click)="remove(line.productId)">
-                Remove
+                Supprimer
               </button>
             </div>
           </div>
@@ -58,10 +58,10 @@
         </ul>
 
         <aside class="summary">
-          <h3 class="summaryTitle">Summary</h3>
+          <h3 class="summaryTitle">Resume</h3>
 
           <div class="sumRow">
-            <span>Subtotal</span>
+            <span>Sous-total</span>
             <strong>{{ subtotal(lines) | currency: currencyCode:'symbol':'1.2-2' }}</strong>
           </div>
 
@@ -87,7 +87,7 @@
           </div>
 
           <button class="cta" type="button" (click)="goToCheckout()">
-            Proceed to checkout
+            Passer au paiement
           </button>
         </aside>
       </section>

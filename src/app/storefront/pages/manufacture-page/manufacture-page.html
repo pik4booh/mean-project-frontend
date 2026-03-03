@@ -1,6 +1,6 @@
 <app-storefront-layout class="store__content">
     @if (boutique$ | async; as boutique) {
-      <section class="manufacturer-profile" aria-label="Store profile">
+      <section class="manufacturer-profile" aria-label="Profil de la boutique">
         <article class="profile-card">
           <div
             class="profile-banner"
@@ -18,13 +18,13 @@
             <div class="profile-heading">
               <h1 class="profile-name">{{ boutique.nom }}</h1>
 
-              <div class="profile-meta" aria-label="Store details">
+              <div class="profile-meta" aria-label="Details de la boutique">
                 @if (boutique.contact.adresse) {
-                  <span class="meta-chip">Location: {{ boutique.contact.adresse }}</span>
+                  <span class="meta-chip">Adresse : {{ boutique.contact.adresse }}</span>
                 }
 
                 @if (boutique.categoryName) {
-                  <span class="meta-chip">Category: {{ boutique.categoryName }}</span>
+                  <span class="meta-chip">Categorie : {{ boutique.categoryName }}</span>
                 }
               </div>
             </div>
@@ -32,15 +32,15 @@
             <p class="profile-description">{{ boutique.description }}</p>
 
             @if (boutique.contact.email || boutique.contact.telephone || boutique.socials?.website || boutique.socials?.facebook || boutique.socials?.instagram) {
-              <div class="profile-contact" aria-label="Contact information">
+              <div class="profile-contact" aria-label="Informations de contact">
                 @if (boutique.contact.email) {
-                  <span class="contact-item">Email: {{ boutique.contact.email }}</span>
+                  <span class="contact-item">E-mail : {{ boutique.contact.email }}</span>
                 }
                 @if (boutique.contact.telephone) {
-                  <span class="contact-item">Phone: {{ boutique.contact.telephone }}</span>
+                  <span class="contact-item">Telephone : {{ boutique.contact.telephone }}</span>
                 }
                 @if (boutique.socials?.website) {
-                  <span class="contact-item">Website: {{ boutique.socials?.website }}</span>
+                  <span class="contact-item">Site web : {{ boutique.socials?.website }}</span>
                 }
                 @if (boutique.socials?.facebook) {
                   <span class="contact-item">Facebook: {{ boutique.socials?.facebook }}</span>
@@ -58,7 +58,7 @@
         <article class="profile-card profile-card--loading">
           <div class="profile-banner"></div>
           <div class="profile-body">
-            <p class="results__status">{{ shopLoading() ? 'Loading store profile...' : (shopError() || 'Store profile unavailable.') }}</p>
+            <p class="results__status">{{ shopLoading() ? 'Chargement du profil de la boutique...' : (shopError() || 'Profil de la boutique indisponible.') }}</p>
           </div>
         </article>
       </section>
@@ -66,9 +66,9 @@
 
     <section class="storefront__results">
         <div class="results__header">
-          <h2>All products</h2>
+          <h2>Tous les produits</h2>
           @if (loading()) {
-            <span class="results__status">Loading...</span>
+            <span class="results__status">Chargement...</span>
           }
         </div>
 

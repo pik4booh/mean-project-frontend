@@ -1,21 +1,21 @@
 <section class="page" *ngIf="vm$ | async as vm">
   <div class="header">
     <div>
-      <h1>Products</h1>
-      <p>Create, review and manage your catalog with the same Back Office dashboard look.</p>
+      <h1>Produits</h1>
+      <p>Creez, verifiez et gerez votre catalogue depuis le tableau de bord Back Office.</p>
     </div>
 
-    <button class="create-product-panel" type="button" (click)="openCreate()" title="Add">
+    <button class="create-product-panel" type="button" (click)="openCreate()" title="Ajouter">
       <span class="create-product-panel__spark">+</span>
       <span class="create-product-panel__body">
-        <span class="create-product-panel__title">Add product</span>
-        <span class="create-product-panel__text">Open the creation dialog</span>
+        <span class="create-product-panel__title">Ajouter un produit</span>
+        <span class="create-product-panel__text">Ouvrir la fenetre de creation</span>
       </span>
     </button>
   </div>
 
   <div class="empty" *ngIf="noShopMessage">{{ noShopMessage }}</div>
-  <div class="empty" *ngIf="loading">Loading products...</div>
+  <div class="empty" *ngIf="loading">Chargement des produits...</div>
   <div class="empty" *ngIf="errorMessage">{{ errorMessage }}</div>
 
   <div class="surface">

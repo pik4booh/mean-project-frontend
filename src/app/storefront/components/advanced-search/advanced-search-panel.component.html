@@ -1,22 +1,22 @@
 <nz-card class="search-panel">
   <div class="search-panel__top">
-    <h3 class="search-panel__title">Advanced Search</h3>
-    <p class="search-panel__subtitle">Refine products by keyword, price, category, and sorting.</p>
+    <h3 class="search-panel__title">Recherche avancee</h3>
+    <p class="search-panel__subtitle">Affinez les produits par mot-cle, prix, categorie et tri.</p>
   </div>
 
   <div class="search-panel__layout">
     <section class="search-panel__block">
-      <p class="search-panel__eyebrow">Keyword</p>
+      <p class="search-panel__eyebrow">Mot-cle</p>
       <app-search-keyword-input
-        label="Keyword"
-        placeholder="Try wireless charger"
+        label="Mot-cle"
+        placeholder="Essayez chargeur sans fil"
         [value]="draft().keyword"
         (valueChange)="updateKeyword($event)"
       ></app-search-keyword-input>
     </section>
 
     <section class="search-panel__block">
-      <p class="search-panel__eyebrow">Sort</p>
+      <p class="search-panel__eyebrow">Tri</p>
       <app-sort-select
         [sort]="draft().sort"
         (sortChange)="updateSort($event)"
@@ -24,7 +24,7 @@
     </section>
 
     <section class="search-panel__block">
-      <p class="search-panel__eyebrow">Price range</p>
+      <p class="search-panel__eyebrow">Plage de prix</p>
       <app-price-range-filter
         [minPrice]="draft().minPrice"
         [maxPrice]="draft().maxPrice"
@@ -44,10 +44,10 @@
 
   <div class="search-panel__actions">
     <button nz-button nzType="link" type="button" (click)="clearAll()">
-      Clear filters
+      Effacer les filtres
     </button>
     <button nz-button nzType="primary" type="button" (click)="applyFilters()">
-      Apply filters
+      Appliquer les filtres
     </button>
   </div>
 </nz-card>

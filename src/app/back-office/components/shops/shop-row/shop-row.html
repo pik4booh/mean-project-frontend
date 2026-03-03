@@ -2,7 +2,7 @@
   <div class="media">
     <ng-container *ngIf="logoSrc as src; else avatarFallback">
       <picture>
-        <img [src]="src" alt="Shop avatar" class="avatar avatar-img" (error)="onLogoError()">
+        <img [src]="src" alt="Avatar de la boutique" class="avatar avatar-img" (error)="onLogoError()">
       </picture>
     </ng-container>
     <ng-template #avatarFallback>
@@ -30,41 +30,41 @@
       </div>
 
       <p class="description">
-        {{ shop.description || 'No description provided yet. Open this shop to continue its setup and storefront identity.' }}
+        {{ shop.description || 'Aucune description pour le moment. Ouvrez cette boutique pour terminer sa configuration.' }}
       </p>
     </div>
 
     <div class="details">
       <div class="detail-card">
         <span class="detail-label">Contact</span>
-        <strong>{{ shop.contact?.phone || shop.contact?.email || 'Not provided' }}</strong>
+        <strong>{{ shop.contact?.phone || shop.contact?.email || 'Non renseigne' }}</strong>
       </div>
 
       <div class="detail-card">
-        <span class="detail-label">Hours</span>
-        <strong>{{ shop.openingHours || 'Schedule not set' }}</strong>
+        <span class="detail-label">Horaires</span>
+        <strong>{{ shop.openingHours || 'Horaires non definis' }}</strong>
       </div>
 
       <div class="detail-card">
-        <span class="detail-label">Address</span>
-        <strong>{{ shop.contact?.address || 'Address not added' }}</strong>
+        <span class="detail-label">Adresse</span>
+        <strong>{{ shop.contact?.address || 'Adresse non ajoutee' }}</strong>
       </div>
 
       <div class="detail-card">
-        <span class="detail-label">Online</span>
-        <strong>{{ shop.socials?.website || shop.socials?.instagram || shop.socials?.facebook || 'No link yet' }}</strong>
+        <span class="detail-label">En ligne</span>
+        <strong>{{ shop.socials?.website || shop.socials?.instagram || shop.socials?.facebook || 'Aucun lien pour le moment' }}</strong>
       </div>
     </div>
   </div>
 
   <div class="aside">
     <div class="aside-copy">
-      <span class="aside-label">Shop ID</span>
+      <span class="aside-label">ID boutique</span>
       <strong>{{ shop._id }}</strong>
     </div>
 
     <div class="aside-action" aria-hidden="true">
-      <span class="aside-action__hint">{{ isActive ? 'Open dashboard' : 'Pending activation' }}</span>
+      <span class="aside-action__hint">{{ isActive ? 'Ouvrir le tableau de bord' : 'Activation en attente' }}</span>
       <span class="aside-action__arrow">&rarr;</span>
     </div>
   </div>

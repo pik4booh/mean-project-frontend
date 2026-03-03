@@ -38,20 +38,20 @@ export class AdminCustomersListComponent {
 
   statusLabel(customer: UserRow): string {
     if (customer.status === 'banned') {
-      return 'Restricted';
+      return 'Restreint';
     }
 
-    return customer.status === 'active' ? 'Active' : 'Pending';
+    return customer.status === 'active' ? 'Actif' : 'En attente';
   }
 
   roleLabel(customer: UserRow): string {
-    return customer.role === 'SHOP' ? 'Shop owner' : 'Customer';
+    return customer.role === 'SHOP' ? 'Proprietaire de boutique' : 'Client';
   }
 
   formatDate(value: string): string {
     const parsed = new Date(value);
     if (Number.isNaN(parsed.getTime())) {
-      return value || 'Unknown date';
+      return value || 'Date inconnue';
     }
 
     return parsed.toLocaleDateString('en-US', {

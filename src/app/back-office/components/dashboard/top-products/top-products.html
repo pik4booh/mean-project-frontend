@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="legend" role="list" aria-label="Top products">
+  <div class="legend" role="list" aria-label="Produits phares">
     <div class="legend-row" role="listitem" *ngFor="let product of products; let i = index; trackBy: trackByProduct">
       <span class="legend-swatch" [style.background]="legendColor(i)"></span>
       <div class="legend-copy">
@@ -49,5 +49,5 @@
 </div>
 
 <ng-template #empty>
-  <div class="empty">No products.</div>
+  <div class="empty">Aucun produit.</div>
 </ng-template>

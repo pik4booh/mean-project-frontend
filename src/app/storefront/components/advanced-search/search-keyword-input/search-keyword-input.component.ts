@@ -9,8 +9,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
   imports: [NzInputModule]
 })
 export class SearchKeywordInputComponent {
-  readonly label = input<string>('Keyword');
-  readonly placeholder = input<string>('Search products');
+  readonly label = input<string>('Mot-cle');
+  readonly placeholder = input<string>('Rechercher des produits');
   readonly value = input<string>('');
   readonly id = input<string>('search-keyword');
   readonly valueChange = output<string>();

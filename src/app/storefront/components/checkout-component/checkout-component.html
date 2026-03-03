@@ -1,32 +1,32 @@
 <section class="checkout">
-  <h2 class="title">Checkout</h2>
+  <h2 class="title">Paiement</h2>
 
   <ng-container *ngIf="lines$ | async as lines">
     <p *ngIf="lines.length === 0" class="empty">
-      Your cart is empty.
+      Votre panier est vide.
     </p>
 
     <div class="grid" *ngIf="lines.length > 0">
       <form class="panel" [formGroup]="form" (ngSubmit)="confirm(lines)">
-        <h3 class="panelTitle">Delivery information</h3>
+        <h3 class="panelTitle">Informations de livraison</h3>
 
         <div class="field">
-          <label>Phone</label>
-          <input type="tel" formControlName="phone" placeholder="Example: 06 12 34 56 78" />
+          <label>Telephone</label>
+          <input type="tel" formControlName="phone" placeholder="Exemple : 06 12 34 56 78" />
           <small class="error" *ngIf="form.controls.phone.touched && form.controls.phone.invalid">
-            Phone is required.
+            Le telephone est obligatoire.
           </small>
         </div>
 
         <div class="field">
-          <label>Address</label>
-          <textarea rows="3" formControlName="address" placeholder="Street, city, ZIP code..."></textarea>
+          <label>Adresse</label>
+          <textarea rows="3" formControlName="address" placeholder="Rue, ville, code postal..."></textarea>
           <small class="error" *ngIf="form.controls.address.touched && form.controls.address.invalid">
-            Address is required.
+            L'adresse est obligatoire.
           </small>
         </div>
 
-        <h3 class="panelTitle">Payment</h3>
+        <h3 class="panelTitle">Paiement</h3>
 
         <div class="mmBox">
           <div class="field">
@@ -41,18 +41,18 @@
         </div>
 
         <button class="confirm" type="submit" [disabled]="submitting || form.invalid || lines.length === 0">
-          {{ submitting ? 'Confirming...' : 'Confirm order' }}
+          {{ submitting ? 'Confirmation...' : 'Confirmer la commande' }}
         </button>
       </form>
 
       <aside class="summary">
-        <h3 class="summaryTitle">Order summary</h3>
+        <h3 class="summaryTitle">Resume de la commande</h3>
 
         <ul class="sumList">
           <li class="sumItem" *ngFor="let line of lines; trackBy: trackByProductId">
             <div class="sumLeft">
               <div class="sumName">{{ line.product.name }}</div>
-              <div class="sumMeta">Qty: {{ line.quantity }}</div>
+              <div class="sumMeta">Qte : {{ line.quantity }}</div>
             </div>
             <div class="sumRight">
               {{ (line.product.price * line.quantity) | currency: currencyCode:'symbol':'1.2-2' }}
@@ -68,7 +68,7 @@
         </div>
 
         <div class="paymentRecap">
-          <div><strong>Payment:</strong> {{ form.value.provider }}</div>
+          <div><strong>Paiement :</strong> {{ form.value.provider }}</div>
         </div>
       </aside>
     </div>

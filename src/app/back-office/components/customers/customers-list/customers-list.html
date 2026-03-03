@@ -1,9 +1,9 @@
 <div class="table-wrap">
   <div class="table-head" *ngIf="customers.length">
-    <span>Customer</span>
+    <span>Client</span>
     <span>Contact</span>
-    <span class="right">Orders</span>
-    <span>Last order</span>
+    <span class="right">Commandes</span>
+    <span>Derniere commande</span>
   </div>
 
   <div class="list" *ngIf="customers.length; else empty">
@@ -16,12 +16,12 @@
       <div class="cell cell--customer">
         <div class="meta">
           <div class="name">{{ c.fullName }}</div>
-          <div class="subline">{{ c.address || 'No address provided' }}</div>
+          <div class="subline">{{ c.address || 'Aucune adresse fournie' }}</div>
         </div>
       </div>
 
       <div class="cell cell--contact">
-        <div class="contact">{{ c.email || 'No email provided' }}</div>
+        <div class="contact">{{ c.email || 'Aucun e-mail fourni' }}</div>
         <div class="contact" *ngIf="c.phone">{{ c.phone }}</div>
       </div>
 
@@ -30,12 +30,12 @@
       </div>
 
       <div class="cell cell--date">
-        <span class="date-value">{{ c.lastOrderDate ? (c.lastOrderDate | date: 'mediumDate') : 'No orders yet' }}</span>
+        <span class="date-value">{{ c.lastOrderDate ? (c.lastOrderDate | date: 'mediumDate') : 'Aucune commande pour le moment' }}</span>
       </div>
     </div>
   </div>
 </div>
 
 <ng-template #empty>
-  <div class="empty">No customers yet.</div>
+  <div class="empty">Aucun client pour le moment.</div>
 </ng-template>

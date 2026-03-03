@@ -5,7 +5,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { guestGuard } from '../core/guards/guest.guard';
 
 export const AUTH_ROUTES: Routes = [
-  { path: 'login', component: LoginPageComponent, title: 'Login', canMatch: [guestGuard] },
-  { path: 'register', component: RegisterPageComponent, title: 'Register' },
+  { path: 'login', component: LoginPageComponent, title: 'Connexion', canMatch: [guestGuard] },
+  { path: 'register', component: RegisterPageComponent, title: 'Inscription' },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];

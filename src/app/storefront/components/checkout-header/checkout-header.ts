@@ -16,7 +16,7 @@ export type HeaderTab = {
 })
 export class CheckoutHeaderComponent {
   @Input() tabs: HeaderTab[] = [
-    { label: 'Payment', link: ['/checkout'] },
-    { label: 'Order', link: ['/order'] },
+    { label: 'Paiement', link: ['/checkout'] },
+    { label: 'Commande', link: ['/order'] },
   ];
 }

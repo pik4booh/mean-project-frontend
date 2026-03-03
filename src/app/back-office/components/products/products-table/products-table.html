@@ -3,8 +3,8 @@
     <thead>
       <tr>
         <th>Image</th>
-        <th>Name</th>
-        <th class="right">Price</th>
+        <th>Nom</th>
+        <th class="right">Prix</th>
         <th class="right">Stock</th>
         <th>Status</th>
         <th class="right">Actions</th>
@@ -15,23 +15,23 @@
       <tr *ngFor="let p of products; trackBy: trackByProductId" (click)="view.emit(p)">
         <td><img class="thumb" [src]="pictureUrl + p.imageUrl" [alt]="p.name" /></td>
         <td class="name">{{ p.name }}</td>
-        <td class="right">{{ p.price === 0 ? 'FREE' : (p.price | currency:'USD') }}</td>
+        <td class="right">{{ p.price === 0 ? 'GRATUIT' : (p.price | currency:'USD') }}</td>
         <td class="right">{{ p.stock }}</td>
         <td>
           <span class="pill" [class.on]="p.status==='ACTIVE'">{{ p.status }}</span>
         </td>
         <td class="right actions">
           <button type="button" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); toggle.emit(p)">
-            {{ p.status === 'ACTIVE' ? 'deactivate' : 'activate' }}
+            {{ p.status === 'ACTIVE' ? 'desactiver' : 'activer' }}
           </button>
-          <button type="button" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); edit.emit(p)">edit</button>
-          <button type="button" class="danger" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); remove.emit(p)">delete</button>
+          <button type="button" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); edit.emit(p)">modifier</button>
+          <button type="button" class="danger" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); remove.emit(p)">supprimer</button>
         </td>
       </tr>
     </tbody>
   </table>
 
   <ng-template #empty>
-    <div class="empty">No products.</div>
+    <div class="empty">Aucun produit.</div>
   </ng-template>
 </div>

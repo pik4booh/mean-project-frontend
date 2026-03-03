@@ -5,10 +5,10 @@
         <div class="meta">{{ order.createdAt }}</div>
         <div class="actions">
           <button class="btn" type="button" [disabled]="!nextStatus" (click)="advance.emit(order.id)">
-            Next status
+            Statut suivant
           </button>
           <button class="btn danger" type="button" [disabled]="!canCancel" (click)="cancel.emit(order.id)">
-            Cancel
+            Annuler
           </button>
         </div>
       </div>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="surface info-card buyer-card">
-        <h4>Buyer contact</h4>
+        <h4>Contact acheteur</h4>
         <div>{{ order.buyer.fullName }}</div>
         <div class="muted">{{ order.buyer.email }} &bull; {{ order.buyer.phone }}</div>
       </div>
@@ -26,7 +26,7 @@
 
     <div class="hero-side">
       <div class="surface info-card address-card">
-        <h4>Address</h4>
+        <h4>Adresse</h4>
         <div>{{ order.address.line1 }}</div>
         <div class="muted">{{ order.address.city }} {{ order.address.zip }} &bull; {{ order.address.country }}</div>
       </div>
@@ -40,14 +40,14 @@
   <div class="body-grid">
     <div class="surface summary-card">
       <div class="total">
-        <div><span>Subtotal</span><span>{{ order.subtotal | currency:'USD' }}</span></div>
-        <div><span>Shipping</span><span>{{ order.shipping | currency:'USD' }}</span></div>
+        <div><span>Sous-total</span><span>{{ order.subtotal | currency:'USD' }}</span></div>
+        <div><span>Livraison</span><span>{{ order.shipping | currency:'USD' }}</span></div>
         <div class="grand"><span>Total</span><span>{{ order.total | currency:'USD' }}</span></div>
       </div>
     </div>
 
     <div class="surface items-card">
-      <h4>Items</h4>
+      <h4>Articles</h4>
       <div class="items-list">
         <div class="item" *ngFor="let it of order.items">
           <img *ngIf="it.imageUrl" class="thumb" [src]="pictureBaseUrl + it.imageUrl" />
@@ -62,5 +62,5 @@
 </div>
 
 <ng-template #empty>
-  <div class="empty">Select an order.</div>
+  <div class="empty">Selectionnez une commande.</div>
 </ng-template>

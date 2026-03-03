@@ -1,7 +1,7 @@
 <section class="page" *ngIf="vm$ | async as vm">
-  <h1 class="title">List shop (Admin)</h1>
+  <h1 class="title">Liste des boutiques (Admin)</h1>
 
-  <app-dashboard-card title="Shops">
+  <app-dashboard-card title="Boutiques">
     <app-admin-shops-filters
       [categories]="vm.categories"
       [query]="vm.query"
@@ -13,10 +13,10 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Owner</th>
-            <th>Category</th>
-            <th>Created</th>
-            <th>Status</th>
+            <th>Proprietaire</th>
+            <th>Categorie</th>
+            <th>Creee le</th>
+            <th>Statut</th>
             <th class="right">Actions</th>
           </tr>
         </thead>
@@ -49,7 +49,7 @@
                   [disabled]="isStatusActionDisabled(s, 'ACTIVE')"
                   (click)="onSetStatus($event, s, 'ACTIVE')"
                 >
-                  Active
+                  Activer
                 </button>
                 <button
                   type="button"
@@ -57,7 +57,7 @@
                   [disabled]="isStatusActionDisabled(s, 'SUSPENDED')"
                   (click)="onSetStatus($event, s, 'SUSPENDED')"
                 >
-                  Suspend
+                  Suspendre
                 </button>
               </div>
             </td>
@@ -66,7 +66,7 @@
       </table>
 
       <ng-template #emptyShops>
-        <div class="empty">No shops found.</div>
+        <div class="empty">Aucune boutique trouvee.</div>
       </ng-template>
     </div>
   </app-dashboard-card>
@@ -75,13 +75,13 @@
     <div class="modal" (click)="$event.stopPropagation()">
       <div class="modal-head">
         <div>
-          <h2>Shop Details</h2>
-          <p class="muted mono">Shop ID: {{ selectedShop?._id }}</p>
+          <h2>Details de la boutique</h2>
+          <p class="muted mono">ID boutique : {{ selectedShop?._id }}</p>
         </div>
-        <button type="button" class="close-btn" (click)="closeShopDetails()">Close</button>
+        <button type="button" class="close-btn" (click)="closeShopDetails()">Fermer</button>
       </div>
 
-      <div *ngIf="loadingDetails" class="empty">Loading details...</div>
+      <div *ngIf="loadingDetails" class="empty">Chargement des details...</div>
 
       <div *ngIf="selectedShop as shop" class="shop-dialog">
         <section class="profile-card">
@@ -93,7 +93,7 @@
               <img [src]="pictureUrl + 'logo/' + shop.logoUrl" alt="" class="profile-avatar" />
             </ng-container>
             <ng-template #noLogo>
-              <div class="profile-avatar profile-avatar--placeholder">No logo</div>
+              <div class="profile-avatar profile-avatar--placeholder">Aucun logo</div>
             </ng-template>
           </div>
 
@@ -101,27 +101,27 @@
             <div class="profile-heading">
               <div class="profile-heading__top">
                 <div>
-                  <p class="eyebrow">Shop Profile</p>
+                  <p class="eyebrow">Profil boutique</p>
                   <h3 class="profile-name">{{ valueOrDash(shop.name) }}</h3>
                 </div>
                 <span class="badge status-pill" [ngClass]="badgeClass(shop.status)">{{ shop.status }}</span>
               </div>
 
               <div class="profile-meta">
-                <span class="meta-chip">Owner: {{ displayOwner(shop) }}</span>
-                <span class="meta-chip">Category: {{ displayCategory(shop) }}</span>
-                <span class="meta-chip">Created: {{ formatDialogDate(shop.createdAt) }}</span>
-                <span class="meta-chip">Updated: {{ formatDialogDate(shop.updatedAt) }}</span>
+                <span class="meta-chip">Proprietaire : {{ displayOwner(shop) }}</span>
+                <span class="meta-chip">Categorie : {{ displayCategory(shop) }}</span>
+                <span class="meta-chip">Creation : {{ formatDialogDate(shop.createdAt) }}</span>
+                <span class="meta-chip">Mise a jour : {{ formatDialogDate(shop.updatedAt) }}</span>
               </div>
             </div>
 
             <p class="profile-description">{{ valueOrDash(shop.description) }}</p>
 
             <div class="profile-contact">
-              <span class="contact-item">Phone: {{ valueOrDash(shop.contact?.phone) }}</span>
-              <span class="contact-item">Email: {{ valueOrDash(shop.contact?.email) }}</span>
-              <span class="contact-item">Address: {{ valueOrDash(shop.contact?.address) }}</span>
-              <span class="contact-item">Opening Hours: {{ valueOrDash(shop.openingHours) }}</span>
+              <span class="contact-item">Telephone : {{ valueOrDash(shop.contact?.phone) }}</span>
+              <span class="contact-item">E-mail : {{ valueOrDash(shop.contact?.email) }}</span>
+              <span class="contact-item">Adresse : {{ valueOrDash(shop.contact?.address) }}</span>
+              <span class="contact-item">Heures d'ouverture : {{ valueOrDash(shop.openingHours) }}</span>
             </div>
           </div>
         </section>

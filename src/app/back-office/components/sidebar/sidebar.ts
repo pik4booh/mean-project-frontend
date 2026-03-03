@@ -43,7 +43,7 @@ export class Sidebar {
 
   readonly user$ = this.authState.currentUser$;
   readonly selectedShop$ = this.selectedShopState.selectedShop$;
-  readonly baseNav: NavItem[] = [{ kind: 'link', label: 'My Shops', icon: 'storefront', route: ['/shop'] }];
+  readonly baseNav: NavItem[] = [{ kind: 'link', label: 'Mes boutiques', icon: 'storefront', route: ['/shop'] }];
   readonly exactLinkActiveOptions = { exact: true };
   readonly shopNav$ = this.selectedShop$.pipe(
     map((selectedShop) => (selectedShop ? this.buildShopNav(selectedShop) : []))
@@ -97,10 +97,10 @@ export class Sidebar {
   private buildShopNav(selectedShop: SelectedShopContext): NavItem[] {
     const id = selectedShop._id;
     return [
-      { kind: 'link', label: 'Dashboard', icon: 'space_dashboard', route: ['/shop', id, 'dashboard'] },
-      { kind: 'link', label: 'Customers', icon: 'group', route: ['/shop', id, 'customers'] },
-      { kind: 'link', label: 'Products', icon: 'inventory_2', route: ['/shop', id, 'products'] },
-      { kind: 'link', label: 'Orders', icon: 'receipt_long', route: ['/shop', id, 'orders'] },
+      { kind: 'link', label: 'Tableau de bord', icon: 'space_dashboard', route: ['/shop', id, 'dashboard'] },
+      { kind: 'link', label: 'Clients', icon: 'group', route: ['/shop', id, 'customers'] },
+      { kind: 'link', label: 'Produits', icon: 'inventory_2', route: ['/shop', id, 'products'] },
+      { kind: 'link', label: 'Commandes', icon: 'receipt_long', route: ['/shop', id, 'orders'] },
     ];
   }
 }

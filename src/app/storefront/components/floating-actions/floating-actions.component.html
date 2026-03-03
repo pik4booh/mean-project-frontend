@@ -1,7 +1,7 @@
-<div class="floating-actions" aria-label="Storefront quick actions">
-  <a class="floating-actions__button floating-actions__button--cart" routerLink="/cart" aria-label="Open cart">
+<div class="floating-actions" aria-label="Actions rapides de la boutique">
+  <a class="floating-actions__button floating-actions__button--cart" routerLink="/cart" aria-label="Ouvrir le panier">
     <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
-    <span class="floating-actions__label">Cart</span>
+    <span class="floating-actions__label">Panier</span>
 
     @if (cartCount$ | async; as cartCount) {
       @if (cartCount > 0) {
@@ -24,18 +24,18 @@
       </button>
 
       <div class="floating-actions__menu" [class.floating-actions__menu--open]="isUserMenuOpen()">
-        <a class="floating-actions__menu-link" routerLink="/orders">My Orders</a>
+        <a class="floating-actions__menu-link" routerLink="/orders">Mes commandes</a>
       </div>
     </div>
 
     <button class="floating-actions__button floating-actions__button--primary" nz-button nzType="default" type="button" (click)="onLogout()">
       <span nz-icon nzType="logout" nzTheme="outline"></span>
-      <span class="floating-actions__label">Logout</span>
+      <span class="floating-actions__label">Deconnexion</span>
     </button>
   } @else {
     <a class="floating-actions__button floating-actions__button--primary" nz-button nzType="primary" routerLink="/auth/login">
       <span nz-icon nzType="login" nzTheme="outline"></span>
-      <span class="floating-actions__label">Sign In</span>
+      <span class="floating-actions__label">Connexion</span>
     </a>
   }
 </div>

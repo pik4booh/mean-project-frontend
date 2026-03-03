@@ -18,7 +18,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   ]
 })
 export class AuthPasswordInputComponent implements ControlValueAccessor {
-  readonly label = input<string>('Password');
+  readonly label = input<string>('Mot de passe');
   readonly id = input<string>('password');
   readonly placeholder = input<string>('********');
   readonly autocomplete = input<string>('current-password');

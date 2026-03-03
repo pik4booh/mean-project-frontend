@@ -8,8 +8,8 @@
   <section class="page" *ngIf="vm$ | async as vm; else loading">
     <div class="header">
       <div>
-        <h1>Dashboard</h1>
-        <p>Overview</p>
+        <h1>Tableau de bord</h1>
+        <p>Vue d'ensemble</p>
       </div>
 
       <app-shop-status-badge *ngIf="vm.shopStatus as st" [status]="st"></app-shop-status-badge>
@@ -38,11 +38,11 @@
         </app-dashboard-card>
       </ng-container>
 
-      <app-mini-tile class="top-buyer-panel" title="Top buyer" *ngIf="vm.topBuyer as tb">
+      <app-mini-tile class="top-buyer-panel" title="Meilleur acheteur" *ngIf="vm.topBuyer as tb">
         <app-top-buyer-tile [buyer]="tb"></app-top-buyer-tile>
       </app-mini-tile>
 
-      <app-dashboard-card class="c4 revenue-panel" title="Revenue">
+      <app-dashboard-card class="c4 revenue-panel" title="Revenus">
         <div card-right class="select">
           <select #yearSelect [value]="revenueYear" (change)="setRevenueYear(yearSelect.value)" style="border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer;">
             <option [value]="2024">2024</option>
@@ -54,9 +54,9 @@
         </div>
 
         <ng-container *ngIf="monthlyRevenueState$ | async as revenueState">
-          <div *ngIf="revenueState.loading" class="muted">Loading revenue...</div>
+          <div *ngIf="revenueState.loading" class="muted">Chargement des revenus...</div>
           <div *ngIf="revenueState.error" class="muted" style="color:#991b1b;">{{ revenueState.error }}</div>
-          <div *ngIf="!revenueState.loading && !revenueState.error && revenueState.empty" class="muted">No revenue for this year.</div>
+          <div *ngIf="!revenueState.loading && !revenueState.error && revenueState.empty" class="muted">Aucun revenu pour cette annee.</div>
           <app-revenue-chart
             *ngIf="!revenueState.loading && !revenueState.error && !revenueState.empty"
             [points]="revenueState.data"
@@ -64,19 +64,19 @@
         </ng-container>
       </app-dashboard-card>
 
-      <app-dashboard-card class="top-product-panel" title="Top Product">
+      <app-dashboard-card class="top-product-panel" title="Produit phare">
         <app-top-products [products]="vm.topProducts"></app-top-products>
       </app-dashboard-card>
 
-      <app-dashboard-card class="low-stock-panel" title="Low-stock products">
+      <app-dashboard-card class="low-stock-panel" title="Produits en stock faible">
         <app-low-stock [products]="vm.lowStock"></app-low-stock>
       </app-dashboard-card>
 
-      <app-dashboard-card title="Latest Orders" style="grid-column: span 12;">
+      <app-dashboard-card title="Dernieres commandes" style="grid-column: span 12;">
         <ng-container *ngIf="latestOrdersState$ | async as latestOrdersState">
-          <div *ngIf="latestOrdersState.loading" class="muted">Loading orders...</div>
+          <div *ngIf="latestOrdersState.loading" class="muted">Chargement des commandes...</div>
           <div *ngIf="latestOrdersState.error" class="muted" style="color:#991b1b;">{{ latestOrdersState.error }}</div>
-          <div *ngIf="!latestOrdersState.loading && !latestOrdersState.error && latestOrdersState.empty" class="muted">No recent orders.</div>
+          <div *ngIf="!latestOrdersState.loading && !latestOrdersState.error && latestOrdersState.empty" class="muted">Aucune commande recente.</div>
           <app-last-orders-table
             *ngIf="!latestOrdersState.loading && !latestOrdersState.error && !latestOrdersState.empty"
             [orders]="latestOrdersState.data"
@@ -88,9 +88,9 @@
 </ng-template>
 
 <ng-template #loading>
-  <div style="padding: 18px;" *ngIf="loading$ | async; else idleState">Loading dashboard...</div>
+  <div style="padding: 18px;" *ngIf="loading$ | async; else idleState">Chargement du tableau de bord...</div>
 </ng-template>
 
 <ng-template #idleState>
-  <div style="padding: 18px;">Preparing dashboard...</div>
+  <div style="padding: 18px;">Preparation du tableau de bord...</div>
 </ng-template>

@@ -1,62 +1,62 @@
 <section class="page" *ngIf="vm$ | async as vm">
   <div class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Revenue rules</p>
-      <h1 class="title">Commission Strategies</h1>
+      <p class="eyebrow">Regles de revenus</p>
+      <h1 class="title">Strategies de commission</h1>
       <p class="subtitle">
-        Manage active fee logic, compare threshold rules, and switch the storefront billing model from one control surface.
+        Gerez la logique de frais active, comparez les seuils et changez le modele de facturation depuis un seul panneau.
       </p>
 
       <div class="hero-badges">
-        <span class="hero-badge">{{ vm.commissions.length }} total plans</span>
-        <span class="hero-badge">{{ inactiveCount(vm.commissions) }} inactive</span>
+        <span class="hero-badge">{{ vm.commissions.length }} plans au total</span>
+        <span class="hero-badge">{{ inactiveCount(vm.commissions) }} inactifs</span>
       </div>
 
       <button class="create-commission-cta" type="button" (click)="openCreate()">
         <span class="create-commission-cta__icon">+</span>
         <span class="create-commission-cta__copy">
-          <span class="create-commission-cta__label">Create commission</span>
-          <span class="create-commission-cta__meta">Launch a new pricing rule setup</span>
+          <span class="create-commission-cta__label">Creer une commission</span>
+          <span class="create-commission-cta__meta">Ouvrir une nouvelle configuration de regle tarifaire</span>
         </span>
       </button>
     </div>
 
-    <app-dashboard-card class="hero-panel" title="Active strategy">
+    <app-dashboard-card class="hero-panel" title="Strategie active">
       <ng-container *ngIf="activeCommission(vm.commissions) as active; else noActiveStrategy">
         <div class="active-plan">
           <div class="active-plan__top">
-            <span class="plan-state">Live</span>
+            <span class="plan-state">Active</span>
             <strong class="plan-name">{{ active.name }}</strong>
           </div>
 
           <div class="plan-metrics">
             <div class="plan-metric">
-              <span>Below threshold</span>
+              <span>Sous le seuil</span>
               <strong>${{ active.rule.fixedUnderUsd }}</strong>
             </div>
             <div class="plan-metric">
-              <span>Threshold</span>
+              <span>Seuil</span>
               <strong>{{ active.rule.thresholdEur }} USD</strong>
             </div>
             <div class="plan-metric">
-              <span>Above threshold</span>
+              <span>Au-dessus du seuil</span>
               <strong>{{ active.rule.percentAbove }}%</strong>
             </div>
           </div>
         </div>
       </ng-container>
       <ng-template #noActiveStrategy>
-        <div class="empty-state">No active commission configured.</div>
+        <div class="empty-state">Aucune commission active configuree.</div>
       </ng-template>
     </app-dashboard-card>
   </div>
 
-  <app-dashboard-card title="Commission catalog">
+  <app-dashboard-card title="Catalogue des commissions">
     <div class="card-head">
       <div>
-        <p class="eyebrow">Catalog</p>
+        <p class="eyebrow">Catalogue</p>
         <p class="subtitle">
-          Explore all commission plans as cards instead of a plain table. Activate one plan at a time or clear the active state.
+          Explorez tous les plans de commission sous forme de cartes. Activez un plan a la fois ou retirez l'etat actif.
         </p>
       </div>
     </div>

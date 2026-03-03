@@ -14,43 +14,43 @@
         [disabled]="commission.active"
         (click)="activate.emit(commission.id)"
       >
-        {{ commission.active ? 'In use' : 'Activate' }}
+        {{ commission.active ? 'En cours d utilisation' : 'Activer' }}
       </button>
     </div>
 
     <div class="rule-grid">
       <div class="rule-block">
-        <span>Threshold</span>
+        <span>Seuil</span>
         <strong>{{ commission.rule.thresholdEur }} USD</strong>
       </div>
       <div class="rule-block">
-        <span>Under threshold</span>
+        <span>Sous le seuil</span>
         <strong>${{ commission.rule.fixedUnderUsd }}</strong>
       </div>
       <div class="rule-block">
-        <span>Above threshold</span>
+        <span>Au-dessus du seuil</span>
         <strong>{{ commission.rule.percentAbove }}%</strong>
       </div>
     </div>
 
     <div class="commission-story">
       <span class="story-line">
-        Orders below {{ commission.rule.thresholdEur }} USD pay a fixed ${{ commission.rule.fixedUnderUsd }} fee.
+        Les commandes sous {{ commission.rule.thresholdEur }} USD paient des frais fixes de ${{ commission.rule.fixedUnderUsd }}.
       </span>
       <span class="story-line">
-        Orders at or above the threshold pay {{ commission.rule.percentAbove }}% of order value.
+        Les commandes au seuil ou au-dessus paient {{ commission.rule.percentAbove }}% de la valeur de la commande.
       </span>
     </div>
   </div>
 
   <div class="toolbar">
     <button class="btn ghost" type="button" (click)="deactivateAll.emit()">
-      Deactivate all
+      Tout desactiver
     </button>
-    <div class="note">Delete is not allowed.</div>
+    <div class="note">La suppression n'est pas autorisee.</div>
   </div>
 </div>
 
 <ng-template #empty>
-  <div class="empty">No commissions.</div>
+  <div class="empty">Aucune commission.</div>
 </ng-template>

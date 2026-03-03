@@ -40,12 +40,12 @@
       <ng-template #ownerSidebar>
       <ng-container *ngIf="selectedShop$ | async as selectedShop; else noShopContext">
         <div class="shop-context" *ngIf="!collapsed">
-          <div class="shop-context__label">Selected Shop</div>
+          <div class="shop-context__label">Boutique selectionnee</div>
           <div class="shop-context__name">{{ selectedShop.name }}</div>
           <hr>
           <button class="item item-button back-action" type="button" (click)="backToMyShops()">
             <span class="mi">arrow_back</span>
-            <span class="label" *ngIf="!collapsed">Back to My Shops</span>
+            <span class="label" *ngIf="!collapsed">Retour a mes boutiques</span>
           </button>
         </div>
 
@@ -92,7 +92,7 @@
 
       <button class="logout" type="button" (click)="onLogout()">
         <span class="mi">logout</span>
-        <span *ngIf="!collapsed">Log out</span>
+        <span *ngIf="!collapsed">Deconnexion</span>
       </button>
     </div>
   </div>

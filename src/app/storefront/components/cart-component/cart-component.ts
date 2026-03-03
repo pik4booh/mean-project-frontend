@@ -50,9 +50,9 @@ export class CartComponent {
   }
 
   deliveryOptions: DeliveryOption[] = [
-    { id: 'standard', label: 'Standard delivery (2-4 days)', fee: 4.99 },
-    { id: 'express', label: 'Express delivery (24-48h)', fee: 9.99 },
-    { id: 'pickup', label: 'Store pickup', fee: 0 },
+    { id: 'standard', label: 'Livraison standard (2-4 jours)', fee: 4.99 },
+    { id: 'express', label: 'Livraison express (24-48h)', fee: 9.99 },
+    { id: 'pickup', label: 'Retrait en boutique', fee: 0 },
   ];
   deliveryId = this.deliveryOptions[0].id;
 
@@ -76,7 +76,7 @@ export class CartComponent {
                 quantity,
                 product: {
                   id: productId,
-                  name: 'Unavailable product',
+                  name: 'Produit indisponible',
                   price: 0,
                   imageUrl: '',
                 } as Product,
@@ -129,14 +129,14 @@ export class CartComponent {
       ps.getProduct?.(id);
 
     if (!obs) {
-      throw new Error('ProductService must expose getProductById(id) or getProduct(id).');
+      throw new Error('ProductService doit exposer getProductById(id) ou getProduct(id).');
     }
 
     return obs.pipe(
       take(1),
       map((p: any) => ({
         id: p.id ?? id,
-        name: p.name ?? p.title ?? 'Product',
+        name: p.name ?? p.title ?? 'Produit',
         price: Number(p.price ?? 0),
         imageUrl: p.imageUrl ?? p.image ?? p.thumbnailUrl ?? '',
         info: p.info ?? p.shortDescription ?? p.brand ?? '',

@@ -5,7 +5,7 @@
       type="button"
       [disabled]="actionsDisabled"
       (click)="$event.stopPropagation(); toggle.emit(product)"
-      title="Toggle ACTIVE"
+      title="Basculer ACTIF"
     >
       <span class="dot" [class.on]="product.status === 'ACTIVE'"></span>
     </button>
@@ -15,9 +15,9 @@
       type="button"
       [disabled]="actionsDisabled"
       (click)="$event.stopPropagation(); edit.emit(product)"
-      title="Edit"
+      title="Modifier"
     >
-      Edit
+      Modifier
     </button>
   </div>
 
@@ -28,18 +28,18 @@
   <div class="p-card__row">
     <div class="name">{{ product.name }}</div>
     <div class="price">
-      <ng-container *ngIf="product.price === 0; else money">FREE</ng-container>
+      <ng-container *ngIf="product.price === 0; else money">GRATUIT</ng-container>
       <ng-template #money>{{ product.price | currency:'USD' }}</ng-template>
     </div>
   </div>
 
   <div class="p-card__desc">
-    {{ product.description || 'No description' }}
+    {{ product.description || 'Aucune description' }}
   </div>
 
   <div class="p-card__meta">
-    <span class="chip">Stock: {{ product.stock }}</span>
-    <span class="chip">Status: {{ product.status }}</span>
+    <span class="chip">Stock : {{ product.stock }}</span>
+    <span class="chip">Statut : {{ product.status }}</span>
 
     <button
       class="link"
@@ -47,7 +47,7 @@
       [disabled]="actionsDisabled"
       (click)="$event.stopPropagation(); remove.emit(product)"
     >
-      delete
+      supprimer
     </button>
   </div>
 </div>

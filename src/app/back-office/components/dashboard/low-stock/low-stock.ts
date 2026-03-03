@@ -30,11 +30,11 @@ export class LowStockComponent {
 
   severityLabel(product: LowStockProduct): string {
     if (product.stock <= product.minStock * 0.5) {
-      return 'Critical';
+      return 'Critique';
     }
 
     if (product.stock <= product.minStock) {
-      return 'Low';
+      return 'Faible';
     }
 
     return 'Stable';
