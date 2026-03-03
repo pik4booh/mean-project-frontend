@@ -109,13 +109,13 @@ export class LoginPageComponent {
 
   private getErrorMessage(error: unknown): string {
     if (error instanceof HttpErrorResponse) {
-      const message = error.error?.error ?? 'Une erreur est survenue. Veuillez reessayer.';
+      const message = error.error?.error ?? 'Une erreur est survenue. Veuillez réessayer.';
       if (typeof message === 'string' && message.trim().length > 0) {
         return message;
       }
     }
 
-    return 'Une erreur est survenue. Veuillez reessayer.';
+    return 'Une erreur est survenue. Veuillez réessayer.';
   }
 
   isInvalid(controlName: keyof LoginFormGroup): boolean {

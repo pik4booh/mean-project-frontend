@@ -6,7 +6,7 @@
         <th>Nom</th>
         <th class="right">Prix</th>
         <th class="right">Stock</th>
-        <th>Status</th>
+        <th>Statut</th>
         <th class="right">Actions</th>
       </tr>
     </thead>
@@ -22,10 +22,10 @@
         </td>
         <td class="right actions">
           <button type="button" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); toggle.emit(p)">
-            {{ p.status === 'ACTIVE' ? 'desactiver' : 'activer' }}
+            {{ p.status === 'ACTIVE' ? 'désactiver' : 'activer' }}
           </button>
-          <button type="button" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); edit.emit(p)">modifier</button>
-          <button type="button" class="danger" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); remove.emit(p)">supprimer</button>
+          <button type="button" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); edit.emit(p)">Modifier</button>
+          <button type="button" class="danger" [disabled]="isDisabled(p)" (click)="$event.stopPropagation(); remove.emit(p)">Supprimer</button>
         </td>
       </tr>
     </tbody>

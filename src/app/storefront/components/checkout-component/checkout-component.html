@@ -11,10 +11,10 @@
         <h3 class="panelTitle">Informations de livraison</h3>
 
         <div class="field">
-          <label>Telephone</label>
+          <label>Téléphone</label>
           <input type="tel" formControlName="phone" placeholder="Exemple : 06 12 34 56 78" />
           <small class="error" *ngIf="form.controls.phone.touched && form.controls.phone.invalid">
-            Le telephone est obligatoire.
+            Le téléphone est obligatoire.
           </small>
         </div>
 
@@ -46,13 +46,13 @@
       </form>
 
       <aside class="summary">
-        <h3 class="summaryTitle">Resume de la commande</h3>
+        <h3 class="summaryTitle">Résumé de la commande</h3>
 
         <ul class="sumList">
           <li class="sumItem" *ngFor="let line of lines; trackBy: trackByProductId">
             <div class="sumLeft">
               <div class="sumName">{{ line.product.name }}</div>
-              <div class="sumMeta">Qte : {{ line.quantity }}</div>
+              <div class="sumMeta">Qté : {{ line.quantity }}</div>
             </div>
             <div class="sumRight">
               {{ (line.product.price * line.quantity) | currency: currencyCode:'symbol':'1.2-2' }}

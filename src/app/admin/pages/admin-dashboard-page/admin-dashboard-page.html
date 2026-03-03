@@ -47,7 +47,7 @@
               <div class="summary-value">{{ graph.filter }}</div>
             </div>
             <div>
-              <div class="eyebrow">Periode</div>
+              <div class="eyebrow">Période</div>
               <div class="summary-value">
                 {{ graph.year }}<span *ngIf="graph.month"> / {{ graph.month }}</span>
               </div>
@@ -79,7 +79,7 @@
         </div>
       </app-mini-tile>
 
-      <app-mini-tile class="t2" title="Meilleure annee">
+      <app-mini-tile class="t2" title="Meilleure année">
         <div class="tile-stack">
           <div class="big">{{ dashboard.topYear?.year ?? '-' }}</div>
           <div class="muted">{{ dashboard.topYear?.soldK ?? 0 }}K commissions</div>
@@ -100,7 +100,7 @@
         </div>
       </app-dashboard-card>
 
-      <app-dashboard-card class="q2 stat-card" title="Boutiques rejetees">
+      <app-dashboard-card class="q2 stat-card" title="Boutiques rejetées">
         <div class="stat-card-body">
           <div class="big">{{ dashboard.rejectedShops }}</div>
           <div class="muted">En attente : {{ dashboard.pendingShops }}</div>

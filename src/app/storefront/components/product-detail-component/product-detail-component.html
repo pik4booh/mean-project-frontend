@@ -18,7 +18,7 @@
           </figure>
         </div>
 
-        <button class="nav prev" type="button" (click)="prev()" [disabled]="images.length <= 1" aria-label="Image precedente">&lsaquo;</button>
+        <button class="nav prev" type="button" (click)="prev()" [disabled]="images.length <= 1" aria-label="Image précédente">&lsaquo;</button>
         <button class="nav next" type="button" (click)="next()" [disabled]="images.length <= 1" aria-label="Image suivante">&rsaquo;</button>
       </div>
 
@@ -51,14 +51,14 @@
         </div>
 
         <div class="meta-row">
-          <span class="k">Categorie</span>
+          <span class="k">Catégorie</span>
           <span class="v">{{ product.categoryName }}</span>
         </div>
       </div>
 
-      <section class="qty-panel" aria-label="Selection de quantite">
+      <section class="qty-panel" aria-label="Sélection de quantité">
         <div class="qty">
-          <div class="qty-label">Quantite</div>
+          <div class="qty-label">Quantité</div>
 
           <div class="qty-control">
             <button type="button" class="qty-btn" (click)="decQty()" [disabled]="isOutOfStock || qty <= 1">-</button>

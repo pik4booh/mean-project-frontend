@@ -104,10 +104,10 @@ export class AdminCustomersBackService {
         linkText: 'Liste des utilisateurs',
       },
       kpi2: {
-        title: 'Proprietaires de boutiques',
+        title: 'Propriétaires de boutiques',
         percent: allCustomers.filter((customer) => customer.role === 'SHOP').length,
-        subtitle: 'Comptes avec le role SHOP',
-        linkText: 'Repartition des roles',
+        subtitle: 'Comptes avec le rôle SHOP',
+        linkText: 'Répartition des rôles',
       },
     }))
   );

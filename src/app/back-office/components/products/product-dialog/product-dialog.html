@@ -2,7 +2,7 @@
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
       <h3 class="title">{{ title }}</h3>
-      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Fermer la fenetre">&times;</button>
+      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Fermer la fenêtre">&times;</button>
     </div>
 
     <div class="alert" *ngIf="errorMessage">{{ errorMessage }}</div>
@@ -29,7 +29,7 @@
 
         <div class="details-grid">
           <div><span>Nom</span><strong>{{ p.name }}</strong></div>
-          <div><span>Categorie</span><strong>{{ p.categoryName || p.categoryId }}</strong></div>
+          <div><span>Catégorie</span><strong>{{ p.categoryName || p.categoryId }}</strong></div>
           <div><span>Statut</span><strong>{{ p.status }}</strong></div>
           <div><span>Prix</span><strong>{{ p.price | number:'1.0-2' }}</strong></div>
           <div><span>Stock</span><strong>{{ p.stock }}</strong></div>
@@ -53,7 +53,7 @@
       <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="img-block">
           <div class="preview preview--product" [class.preview--empty]="!primaryPreviewImage">
-            <img *ngIf="primaryPreviewImage; else emptyPreview" [src]="primaryPreviewSrc" alt="Apercu de l image du produit" />
+            <img *ngIf="primaryPreviewImage; else emptyPreview" [src]="primaryPreviewSrc" alt="Aperçu de l'image du produit" />
           </div>
 
           <div class="img-actions">
@@ -63,7 +63,7 @@
 
               <div class="dropzone-actions">
                 <label class="file-btn" [class.is-disabled]="submitting">
-                  {{ combinedImages.length ? 'Remplacer ou ajouter des images' : 'Televerser des images' }}
+                  {{ combinedImages.length ? 'Remplacer ou ajouter des images' : 'Téléverser des images' }}
                   <input
                     type="file"
                     accept="image/*"
@@ -80,21 +80,21 @@
               <div class="thumbs-edit" *ngIf="retainedImages.length || newImages.length; else noImages">
                 <div class="thumb-card" *ngFor="let img of retainedImages; index as i">
                   <img [src]="pictureUrl + img" alt="image existante" />
-                  <button type="button" class="remove-thumb" (click)="removeExistingImage(i)" [disabled]="submitting" aria-label="Supprimer l image">&times;</button>
+                  <button type="button" class="remove-thumb" (click)="removeExistingImage(i)" [disabled]="submitting" aria-label="Supprimer l'image">&times;</button>
                 </div>
                 <div class="thumb-card" *ngFor="let item of newImages; index as i">
                   <img [src]="item.previewUrl" [alt]="item.name" />
-                  <button type="button" class="remove-thumb" (click)="removeNewImage(i)" [disabled]="submitting" aria-label="Supprimer l image">&times;</button>
+                  <button type="button" class="remove-thumb" (click)="removeNewImage(i)" [disabled]="submitting" aria-label="Supprimer l'image">&times;</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <ng-template #emptyPreview>
-          <div class="preview-placeholder">Aucune image selectionnee</div>
+          <div class="preview-placeholder">Aucune image sélectionnée</div>
         </ng-template>
         <ng-template #noImages>
-          <div class="empty-thumb">Aucune image selectionnee</div>
+          <div class="empty-thumb">Aucune image sélectionnée</div>
         </ng-template>
 
         <div class="grid">
@@ -104,7 +104,7 @@
           </label>
 
           <label class="field">
-            <span>Categorie</span>
+            <span>Catégorie</span>
             <select formControlName="categoryId" [disabled]="submitting">
               <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
             </select>
@@ -137,7 +137,7 @@
         <div class="actions">
           <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Annuler</button>
           <button type="submit" class="btn primary" [disabled]="submitting || loading">
-            {{ submitting ? 'Envoi...' : (mode === 'create' ? 'Creer' : 'Enregistrer') }}
+            {{ submitting ? 'Envoi...' : (mode === 'create' ? 'Créer' : 'Enregistrer') }}
           </button>
         </div>
       </form>

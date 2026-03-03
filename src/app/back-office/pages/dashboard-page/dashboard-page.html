@@ -56,7 +56,7 @@
         <ng-container *ngIf="monthlyRevenueState$ | async as revenueState">
           <div *ngIf="revenueState.loading" class="muted">Chargement des revenus...</div>
           <div *ngIf="revenueState.error" class="muted" style="color:#991b1b;">{{ revenueState.error }}</div>
-          <div *ngIf="!revenueState.loading && !revenueState.error && revenueState.empty" class="muted">Aucun revenu pour cette annee.</div>
+          <div *ngIf="!revenueState.loading && !revenueState.error && revenueState.empty" class="muted">Aucun revenu pour cette année.</div>
           <app-revenue-chart
             *ngIf="!revenueState.loading && !revenueState.error && !revenueState.empty"
             [points]="revenueState.data"
@@ -72,11 +72,11 @@
         <app-low-stock [products]="vm.lowStock"></app-low-stock>
       </app-dashboard-card>
 
-      <app-dashboard-card title="Dernieres commandes" style="grid-column: span 12;">
+      <app-dashboard-card title="Dernières commandes" style="grid-column: span 12;">
         <ng-container *ngIf="latestOrdersState$ | async as latestOrdersState">
           <div *ngIf="latestOrdersState.loading" class="muted">Chargement des commandes...</div>
           <div *ngIf="latestOrdersState.error" class="muted" style="color:#991b1b;">{{ latestOrdersState.error }}</div>
-          <div *ngIf="!latestOrdersState.loading && !latestOrdersState.error && latestOrdersState.empty" class="muted">Aucune commande recente.</div>
+          <div *ngIf="!latestOrdersState.loading && !latestOrdersState.error && latestOrdersState.empty" class="muted">Aucune commande récente.</div>
           <app-last-orders-table
             *ngIf="!latestOrdersState.loading && !latestOrdersState.error && !latestOrdersState.empty"
             [orders]="latestOrdersState.data"
@@ -92,5 +92,5 @@
 </ng-template>
 
 <ng-template #idleState>
-  <div style="padding: 18px;">Preparation du tableau de bord...</div>
+  <div style="padding: 18px;">Préparation du tableau de bord...</div>
 </ng-template>

@@ -1,7 +1,7 @@
 <div class="overlay" (click)="onBackdropClick()">
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
-      <h3>Creer une commission</h3>
+      <h3>Créer une commission</h3>
       <button class="x" type="button" (click)="cancel.emit()">x</button>
     </div>
 
@@ -9,7 +9,7 @@
       <div class="grid">
         <label class="field full">
           <span>Nom</span>
-          <input formControlName="name" placeholder="Ex : Commission par defaut" />
+          <input formControlName="name" placeholder="Ex. : Commission par défaut" />
         </label>
 
         <label class="field">
@@ -29,17 +29,17 @@
 
         <label class="check full">
           <input type="checkbox" formControlName="activateNow" />
-          <span>Activer cette commission maintenant (et desactiver les autres)</span>
+          <span>Activer cette commission maintenant (et désactiver les autres)</span>
         </label>
 
         <div class="hint full">
-          Exemple : si le total est inferieur au seuil, frais fixes en USD ; sinon, pourcentage de la commande.
+          Exemple : si le total est inférieur au seuil, frais fixes en USD ; sinon, pourcentage de la commande.
         </div>
       </div>
 
       <div class="actions">
         <button type="button" class="btn ghost" (click)="cancel.emit()">Annuler</button>
-        <button type="submit" class="btn primary">Creer</button>
+        <button type="submit" class="btn primary">Créer</button>
       </div>
     </form>
   </div>

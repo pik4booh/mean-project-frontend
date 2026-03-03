@@ -45,7 +45,7 @@ export class AdminCustomersListComponent {
   }
 
   roleLabel(customer: UserRow): string {
-    return customer.role === 'SHOP' ? 'Proprietaire de boutique' : 'Client';
+    return customer.role === 'SHOP' ? 'Propriétaire de boutique' : 'Client';
   }
 
   formatDate(value: string): string {

@@ -4,7 +4,7 @@
       <p class="eyebrow">CRM Admin</p>
       <h1 class="page-title">Atlas clients</h1>
       <p class="page-subtitle">
-        Suivez tous les utilisateurs inscrits, identifiez les proprietaires de boutiques et parcourez l'annuaire depuis un seul espace.
+        Suivez tous les utilisateurs inscrits, identifiez les propriétaires de boutiques et parcourez l'annuaire depuis un seul espace.
       </p>
 
       <div class="hero-badges">
@@ -25,7 +25,7 @@
   </div>
 
   <div class="workspace">
-    <app-dashboard-card class="control-card" title="Controles de l'annuaire">
+    <app-dashboard-card class="control-card" title="Contrôles de l'annuaire">
       <div class="control-stack">
         <label class="control-block">
           <span class="control-label">Rechercher des personnes</span>
@@ -34,21 +34,21 @@
             [ngModel]="vm.query.search"
             (ngModelChange)="setSearch($event)"
             [ngModelOptions]="{ standalone: true }"
-            placeholder="Rechercher par nom, e-mail, telephone ou role"
+            placeholder="Rechercher par nom, e-mail, téléphone ou rôle"
           />
         </label>
 
         <label class="control-block">
           <span class="control-label">Ordre chronologique</span>
           <select class="sort-select" [ngModel]="vm.query.sort" (ngModelChange)="setSort($event)">
-            <option value="newest">Plus recents</option>
+            <option value="newest">Plus récents</option>
             <option value="oldest">Plus anciens</option>
           </select>
         </label>
 
         <div class="control-note">
-          <span class="control-note__value">{{ vm.selectedId ? '1 selectionne' : 'Selection automatique du premier profil' }}</span>
-          <span class="control-note__text">La selection met a jour le profil mis en avant ci-dessous.</span>
+          <span class="control-note__value">{{ vm.selectedId ? '1 sélectionné' : 'Sélection automatique du premier profil' }}</span>
+          <span class="control-note__text">La sélection met à jour le profil mis en avant ci-dessous.</span>
         </div>
       </div>
     </app-dashboard-card>
@@ -66,7 +66,7 @@
 <ng-template #loadingState>
   <section class="page">
     <div class="loading-card">
-      {{ errorMessage || (loading ? 'Chargement des clients...' : 'Preparation de l'espace clients...') }}
+      {{ errorMessage || (loading ? 'Chargement des clients...' : 'Préparation de l'espace clients...') }}
     </div>
   </section>
 </ng-template>

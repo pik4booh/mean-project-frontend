@@ -18,13 +18,13 @@
             <div class="profile-heading">
               <h1 class="profile-name">{{ boutique.nom }}</h1>
 
-              <div class="profile-meta" aria-label="Details de la boutique">
+              <div class="profile-meta" aria-label="Détails de la boutique">
                 @if (boutique.contact.adresse) {
                   <span class="meta-chip">Adresse : {{ boutique.contact.adresse }}</span>
                 }
 
                 @if (boutique.categoryName) {
-                  <span class="meta-chip">Categorie : {{ boutique.categoryName }}</span>
+                  <span class="meta-chip">Catégorie : {{ boutique.categoryName }}</span>
                 }
               </div>
             </div>
@@ -37,7 +37,7 @@
                   <span class="contact-item">E-mail : {{ boutique.contact.email }}</span>
                 }
                 @if (boutique.contact.telephone) {
-                  <span class="contact-item">Telephone : {{ boutique.contact.telephone }}</span>
+                  <span class="contact-item">Téléphone : {{ boutique.contact.telephone }}</span>
                 }
                 @if (boutique.socials?.website) {
                   <span class="contact-item">Site web : {{ boutique.socials?.website }}</span>

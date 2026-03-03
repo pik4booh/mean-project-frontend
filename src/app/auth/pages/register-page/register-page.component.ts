@@ -54,7 +54,7 @@ export class RegisterPageComponent {
 
   readonly roleOptions: SelectOption[] = [
     { label: 'Acheteur', value: 'BUYER' },
-    { label: 'Proprietaire de boutique', value: 'SHOP' }
+    { label: 'Propriétaire de boutique', value: 'SHOP' }
   ];
 
   readonly form: FormGroup<RegisterFormGroup> = this.fb.group({
@@ -92,7 +92,7 @@ export class RegisterPageComponent {
       )
       .subscribe({
         next: result => {
-          window.alert('Inscription reussie ! Connectez-vous avec votre nouveau compte.');
+          window.alert('Inscription réussie ! Connectez-vous avec votre nouveau compte.');
           this.apiError.set(null);
           this.router.navigate(['/login']);
         },
@@ -105,13 +105,13 @@ export class RegisterPageComponent {
 
   private getErrorMessage(error: unknown): string {
     if (error instanceof HttpErrorResponse) {
-      const message = error.error?.error ?? 'Une erreur est survenue. Veuillez reessayer.';
+      const message = error.error?.error ?? 'Une erreur est survenue. Veuillez réessayer.';
       if (typeof message === 'string' && message.trim().length > 0) {
         return message;
       }
     }
 
-    return 'Une erreur est survenue. Veuillez reessayer.';
+    return 'Une erreur est survenue. Veuillez réessayer.';
   }
 
   isInvalid(controlName: keyof RegisterFormGroup): boolean {

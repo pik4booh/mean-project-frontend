@@ -14,7 +14,7 @@
         [disabled]="commission.active"
         (click)="activate.emit(commission.id)"
       >
-        {{ commission.active ? 'En cours d utilisation' : 'Activer' }}
+        {{ commission.active ? "En cours d'utilisation" : 'Activer' }}
       </button>
     </div>
 
@@ -45,9 +45,9 @@
 
   <div class="toolbar">
     <button class="btn ghost" type="button" (click)="deactivateAll.emit()">
-      Tout desactiver
+      Tout désactiver
     </button>
-    <div class="note">La suppression n'est pas autorisee.</div>
+    <div class="note">La suppression n'est pas autorisée.</div>
   </div>
 </div>
 

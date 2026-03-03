@@ -1,5 +1,5 @@
 <app-auth-form-layout
-  title="Creez votre compte"
+  title="Créez votre compte"
   subtitle="Commencez Hello Mercado aujourd'hui."
   titleId="register-title"
 >
@@ -13,8 +13,8 @@
     <div class="field-group">
       <app-select-input
         id="register-role"
-        label="Role"
-        placeholder="Choisissez votre role"
+        label="Type"
+        placeholder="Choisissez votre rôle"
         [options]="roleOptions"
         formControlName="role"
         [invalid]="isInvalid('role')"
@@ -61,7 +61,7 @@
     <div class="field-group">
       <app-text-input
         id="register-phone"
-        label="Telephone"
+        label="Téléphone"
         placeholder="+261000000000"
         autocomplete="tel"
         inputMode="tel"
@@ -79,7 +79,7 @@
       <app-password-input
         id="register-password"
         label="Mot de passe"
-        placeholder="Creez un mot de passe"
+        placeholder="Créez un mot de passe"
         autocomplete="new-password"
         formControlName="password"
         [invalid]="isInvalid('password')"
@@ -92,14 +92,14 @@
     </div>
 
     <app-submit-button
-      label="Creer un compte"
+      label="Créer un compte"
       [loading]="loading()"
       [disabled]="isSubmitDisabled()"
     ></app-submit-button>
   </form>
 
   <p class="auth-footer">
-    Vous avez deja un compte ?
+    Vous avez déjà un compte ?
     <a routerLink="/auth/login">Se connecter</a>
   </p>
 </app-auth-form-layout>

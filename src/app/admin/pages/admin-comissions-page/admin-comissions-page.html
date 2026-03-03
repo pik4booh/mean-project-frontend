@@ -1,10 +1,10 @@
 <section class="page" *ngIf="vm$ | async as vm">
   <div class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Regles de revenus</p>
-      <h1 class="title">Strategies de commission</h1>
+      <p class="eyebrow">Règles de revenus</p>
+      <h1 class="title">Stratégies de commission</h1>
       <p class="subtitle">
-        Gerez la logique de frais active, comparez les seuils et changez le modele de facturation depuis un seul panneau.
+        Gérez la logique de frais active, comparez les seuils et changez le modèle de facturation depuis un seul panneau.
       </p>
 
       <div class="hero-badges">
@@ -15,13 +15,13 @@
       <button class="create-commission-cta" type="button" (click)="openCreate()">
         <span class="create-commission-cta__icon">+</span>
         <span class="create-commission-cta__copy">
-          <span class="create-commission-cta__label">Creer une commission</span>
-          <span class="create-commission-cta__meta">Ouvrir une nouvelle configuration de regle tarifaire</span>
+          <span class="create-commission-cta__label">Créer une commission</span>
+          <span class="create-commission-cta__meta">Ouvrir une nouvelle configuration de règle tarifaire</span>
         </span>
       </button>
     </div>
 
-    <app-dashboard-card class="hero-panel" title="Strategie active">
+    <app-dashboard-card class="hero-panel" title="Stratégie active">
       <ng-container *ngIf="activeCommission(vm.commissions) as active; else noActiveStrategy">
         <div class="active-plan">
           <div class="active-plan__top">
@@ -46,7 +46,7 @@
         </div>
       </ng-container>
       <ng-template #noActiveStrategy>
-        <div class="empty-state">Aucune commission active configuree.</div>
+        <div class="empty-state">Aucune commission active configurée.</div>
       </ng-template>
     </app-dashboard-card>
   </div>
@@ -56,7 +56,7 @@
       <div>
         <p class="eyebrow">Catalogue</p>
         <p class="subtitle">
-          Explorez tous les plans de commission sous forme de cartes. Activez un plan a la fois ou retirez l'etat actif.
+          Explorez tous les plans de commission sous forme de cartes. Activez un plan à la fois ou retirez l'état actif.
         </p>
       </div>
     </div>

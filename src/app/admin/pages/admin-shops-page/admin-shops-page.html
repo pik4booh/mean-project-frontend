@@ -13,9 +13,9 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Proprietaire</th>
-            <th>Categorie</th>
-            <th>Creee le</th>
+            <th>Propriétaire</th>
+            <th>Catégorie</th>
+            <th>Créée le</th>
             <th>Statut</th>
             <th class="right">Actions</th>
           </tr>
@@ -66,7 +66,7 @@
       </table>
 
       <ng-template #emptyShops>
-        <div class="empty">Aucune boutique trouvee.</div>
+        <div class="empty">Aucune boutique trouvée.</div>
       </ng-template>
     </div>
   </app-dashboard-card>
@@ -75,13 +75,13 @@
     <div class="modal" (click)="$event.stopPropagation()">
       <div class="modal-head">
         <div>
-          <h2>Details de la boutique</h2>
+          <h2>Détails de la boutique</h2>
           <p class="muted mono">ID boutique : {{ selectedShop?._id }}</p>
         </div>
         <button type="button" class="close-btn" (click)="closeShopDetails()">Fermer</button>
       </div>
 
-      <div *ngIf="loadingDetails" class="empty">Chargement des details...</div>
+      <div *ngIf="loadingDetails" class="empty">Chargement des détails...</div>
 
       <div *ngIf="selectedShop as shop" class="shop-dialog">
         <section class="profile-card">
@@ -108,17 +108,17 @@
               </div>
 
               <div class="profile-meta">
-                <span class="meta-chip">Proprietaire : {{ displayOwner(shop) }}</span>
-                <span class="meta-chip">Categorie : {{ displayCategory(shop) }}</span>
-                <span class="meta-chip">Creation : {{ formatDialogDate(shop.createdAt) }}</span>
-                <span class="meta-chip">Mise a jour : {{ formatDialogDate(shop.updatedAt) }}</span>
+                <span class="meta-chip">Propriétaire : {{ displayOwner(shop) }}</span>
+                <span class="meta-chip">Catégorie : {{ displayCategory(shop) }}</span>
+                <span class="meta-chip">Création : {{ formatDialogDate(shop.createdAt) }}</span>
+                <span class="meta-chip">Mise à jour : {{ formatDialogDate(shop.updatedAt) }}</span>
               </div>
             </div>
 
             <p class="profile-description">{{ valueOrDash(shop.description) }}</p>
 
             <div class="profile-contact">
-              <span class="contact-item">Telephone : {{ valueOrDash(shop.contact?.phone) }}</span>
+              <span class="contact-item">Téléphone : {{ valueOrDash(shop.contact?.phone) }}</span>
               <span class="contact-item">E-mail : {{ valueOrDash(shop.contact?.email) }}</span>
               <span class="contact-item">Adresse : {{ valueOrDash(shop.contact?.address) }}</span>
               <span class="contact-item">Heures d'ouverture : {{ valueOrDash(shop.openingHours) }}</span>

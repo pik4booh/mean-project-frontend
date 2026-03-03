@@ -1,8 +1,8 @@
 <div class="overlay" (click)="onBackdropClick()">
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
-      <h3 class="title">Creer une boutique</h3>
-      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Fermer la fenetre">&times;</button>
+      <h3 class="title">Créer une boutique</h3>
+      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Fermer la fenêtre">&times;</button>
     </div>
 
     <div class="alert" *ngIf="submitError">{{ submitError }}</div>
@@ -10,7 +10,7 @@
     <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="img-block">
         <div class="preview preview--product" [class.preview--empty]="!(previewUrl || defaultLogoUrl)">
-          <img *ngIf="previewUrl || defaultLogoUrl; else emptyPreview" [src]="previewUrl || defaultLogoUrl" alt="Apercu du logo de la boutique" />
+          <img *ngIf="previewUrl || defaultLogoUrl; else emptyPreview" [src]="previewUrl || defaultLogoUrl" alt="Aperçu du logo de la boutique" />
         </div>
 
         <div class="img-actions">
@@ -26,7 +26,7 @@
 
             <div class="dropzone-actions">
               <label class="file-btn" [class.is-disabled]="submitting">
-                {{ hasCustomLogo ? 'Remplacer le logo' : 'Televerser le logo' }}
+                {{ hasCustomLogo ? 'Remplacer le logo' : 'Téléverser le logo' }}
                 <input type="file" accept="image/*" (change)="onPickFile($event)" [disabled]="submitting" hidden />
               </label>
 
@@ -42,7 +42,7 @@
         </div>
       </div>
       <ng-template #emptyPreview>
-        <div class="preview-placeholder">Aucune image selectionnee</div>
+        <div class="preview-placeholder">Aucune image sélectionnée</div>
       </ng-template>
 
       <div class="grid">
@@ -52,7 +52,7 @@
         </label>
 
         <label class="field">
-          <span>Categorie</span>
+          <span>Catégorie</span>
           <select formControlName="categoryId" [disabled]="submitting">
             <option *ngFor="let c of categories" [value]="c._id">{{ c.name }}</option>
           </select>
@@ -71,7 +71,7 @@
 
       <div class="grid" formGroupName="contact">
         <label class="field">
-          <span>Telephone de contact</span>
+          <span>Téléphone de contact</span>
           <input formControlName="phone" [disabled]="submitting" />
         </label>
 
@@ -106,7 +106,7 @@
       <div class="actions">
         <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Annuler</button>
         <button type="submit" class="btn primary" [disabled]="submitting">
-          {{ submitting ? 'Envoi...' : 'Creer' }}
+          {{ submitting ? 'Envoi...' : 'Créer' }}
         </button>
       </div>
     </form>

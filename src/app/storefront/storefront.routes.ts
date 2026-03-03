@@ -41,7 +41,7 @@ export const STOREFRONT_ROUTES: Routes = [
   },
   { path: 'product/:id',
     component: ProductDetailsPage,
-    title: 'Details du produit',
+    title: 'Détails du produit',
     canMatch: [authGuard, roleGuard],
     data:{ roles: ['BUYER'] }
   },

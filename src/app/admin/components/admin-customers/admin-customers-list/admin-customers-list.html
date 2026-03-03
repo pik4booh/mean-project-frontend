@@ -3,7 +3,7 @@
     <div class="featured-head">
       <div class="featured-avatar">{{ initials(selected) }}</div>
       <div class="featured-copy">
-        <p class="eyebrow">Profil selectionne</p>
+        <p class="eyebrow">Profil sélectionné</p>
         <h3>{{ selected.fullName }}</h3>
         <p class="featured-role">{{ roleLabel(selected) }}</p>
       </div>
@@ -15,8 +15,8 @@
         <strong>{{ selected.email || 'Aucun e-mail fourni' }}</strong>
       </div>
       <div class="metric">
-        <span class="metric-label">Telephone</span>
-        <strong>{{ selected.phone || 'Aucun telephone fourni' }}</strong>
+        <span class="metric-label">Téléphone</span>
+        <strong>{{ selected.phone || 'Aucun téléphone fourni' }}</strong>
       </div>
       <div class="metric">
         <span class="metric-label">Inscrit le</span>
@@ -52,7 +52,7 @@
       </div>
 
       <div class="customer-card__foot">
-        <span class="customer-phone">{{ customer.phone || 'Aucun telephone' }}</span>
+        <span class="customer-phone">{{ customer.phone || 'Aucun téléphone' }}</span>
         <span class="customer-date">{{ formatDate(customer.createdAt) }}</span>
       </div>
     </button>
@@ -60,5 +60,5 @@
 </div>
 
 <ng-template #empty>
-  <div class="empty">Aucun utilisateur trouve.</div>
+  <div class="empty">Aucun utilisateur trouvé.</div>
 </ng-template>

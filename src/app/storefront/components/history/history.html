@@ -6,23 +6,23 @@
       <input
         class="search"
         type="search"
-        placeholder="Rechercher (commande, nom, telephone)..."
+        placeholder="Rechercher (commande, nom, téléphone)..."
         [(ngModel)]="search"
       />
 
       <select class="select" [(ngModel)]="statusFilter">
         <option value="ALL">Toutes</option>
-        <option value="PAID">Payee</option>
+        <option value="PAID">Payée</option>
         <option value="PENDING">En attente</option>
-        <option value="CANCELLED">Annulee</option>
+        <option value="CANCELLED">Annulée</option>
       </select>
 
-      <button class="btn" type="button" (click)="clearFilters()">Reinitialiser</button>
+      <button class="btn" type="button" (click)="clearFilters()">Réinitialiser</button>
     </div>
   </div>
 
   <ng-container *ngIf="filteredOrders() as rows">
-    <p class="empty" *ngIf="rows.length === 0">Aucune commande trouvee.</p>
+    <p class="empty" *ngIf="rows.length === 0">Aucune commande trouvée.</p>
 
     <div class="tableWrap" *ngIf="rows.length > 0">
       <table class="table">
@@ -49,7 +49,7 @@
               <td><span [class]="badgeClass(o.status)">{{ o.status }}</span></td>
               <td class="right">
                 <button class="btn" type="button" (click)="toggleDetails(o.id)">
-                  {{ expandedId === o.id ? 'Masquer' : 'Details' }}
+                  {{ expandedId === o.id ? 'Masquer' : 'Détails' }}
                 </button>
               </td>
             </tr>
@@ -60,16 +60,16 @@
                   <div class="block">
                     <div class="blockTitle">Client</div>
                     <div><strong>Nom :</strong> {{ o.customerName }}</div>
-                    <div><strong>Telephone :</strong> {{ o.phone }}</div>
+                    <div><strong>Téléphone :</strong> {{ o.phone }}</div>
                     <div><strong>Adresse :</strong> {{ o.address }}</div>
                     <div *ngIf="o.note"><strong>Note :</strong> {{ o.note }}</div>
                   </div>
 
                   <div class="block">
                     <div class="blockTitle">Paiement</div>
-                    <div><strong>Methode :</strong> {{ o.paymentMethod }}</div>
+                    <div><strong>Méthode :</strong> {{ o.paymentMethod }}</div>
                     <div class="hint" *ngIf="o.paymentMethod === 'MOBILE_MONEY'">
-                      (simulation) Les details Mobile Money peuvent etre ajoutes si necessaire
+                      (simulation) Les détails Mobile Money peuvent être ajoutés si nécessaire
                     </div>
                   </div>
 

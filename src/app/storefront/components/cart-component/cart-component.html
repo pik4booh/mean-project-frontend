@@ -27,7 +27,7 @@
             <div class="info" *ngIf="line.product.info">{{ line.product.info }}</div>
 
             <div class="row bottom">
-              <div class="qty" role="group" [attr.aria-label]="'Quantite pour ' + line.product.name">
+              <div class="qty" role="group" [attr.aria-label]="'Quantité pour ' + line.product.name">
                 <button type="button" (click)="decrement(line.productId)" aria-label="Diminuer">-</button>
 
                 <input
@@ -36,7 +36,7 @@
                   [ngModel]="line.quantity"
                   (ngModelChange)="updateQty(line.productId, $event)"
                   [ngModelOptions]="{ standalone: true }"
-                  aria-label="Quantite"
+                  aria-label="Quantité"
                 />
 
                 <button type="button" (click)="increment(line.productId)" aria-label="Augmenter">+</button>
@@ -58,7 +58,7 @@
         </ul>
 
         <aside class="summary">
-          <h3 class="summaryTitle">Resume</h3>
+          <h3 class="summaryTitle">Résumé</h3>
 
           <div class="sumRow">
             <span>Sous-total</span>
