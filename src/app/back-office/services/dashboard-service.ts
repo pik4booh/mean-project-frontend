@@ -324,22 +324,22 @@ export class DashboardService {
 
     return {
       kpiProcessed: {
-        title: 'Processed orders',
+        title: 'Commandes traitées',
         percent: input.processedCount,
         trend: input.processedCount > 0 ? 'up' : undefined,
-        subtitle: 'Status CONFIRMED',
+        subtitle: 'Statut TRAITE',
         linkText: '',
       },
       kpiPENDING: {
-        title: 'Pending orders',
+        title: 'Commandes en attente',
         percent: input.pendingCount,
-        subtitle: 'Status PENDING',
+        subtitle: 'Statut EN ATTENTE',
         linkText: '',
       },
       kpiDELIVERED: {
-        title: 'Delivered orders',
+        title: 'Commmandes livrées',
         percent: input.deliveredCount,
-        subtitle: 'Status DELIVERED',
+        subtitle: 'Statut LIVRE',
         linkText: '',
       },
       topProducts: input.topProducts,

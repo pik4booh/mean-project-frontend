@@ -21,11 +21,11 @@
     <div class="rule-grid">
       <div class="rule-block">
         <span>Seuil</span>
-        <strong>{{ commission.rule.thresholdEur }} USD</strong>
+        <strong>{{ commission.rule.thresholdEur }} EUR</strong>
       </div>
       <div class="rule-block">
         <span>Sous le seuil</span>
-        <strong>${{ commission.rule.fixedUnderUsd }}</strong>
+        <strong>€{{ commission.rule.fixedUnderUsd }}</strong>
       </div>
       <div class="rule-block">
         <span>Au-dessus du seuil</span>
@@ -35,7 +35,7 @@
 
     <div class="commission-story">
       <span class="story-line">
-        Les commandes sous {{ commission.rule.thresholdEur }} USD paient des frais fixes de ${{ commission.rule.fixedUnderUsd }}.
+        Les commandes sous {{ commission.rule.thresholdEur }} EUR paient des frais fixes de €{{ commission.rule.fixedUnderUsd }}.
       </span>
       <span class="story-line">
         Les commandes au seuil ou au-dessus paient {{ commission.rule.percentAbove }}% de la valeur de la commande.
@@ -43,12 +43,12 @@
     </div>
   </div>
 
-  <div class="toolbar">
+  <!-- <div class="toolbar">
     <button class="btn ghost" type="button" (click)="deactivateAll.emit()">
       Tout désactiver
     </button>
     <div class="note">La suppression n'est pas autorisée.</div>
-  </div>
+  </div> -->
 </div>
 
 <ng-template #empty>
