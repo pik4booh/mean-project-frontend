@@ -38,6 +38,7 @@ export interface OrderStatusEvent {
 
 export interface AdminOrder {
   id: string;
+  rawId: string;
   createdAt: string;
   status: OrderStatus;
 
@@ -198,6 +199,7 @@ export class AdminOrdersBackService {
       const totals = mkTotals(items);
       return {
         id,
+        rawId: id,
         createdAt: nowIso(),
         status,
         shopId,
