@@ -11,10 +11,10 @@ import { Sidebar, NavItem } from '../../../back-office/components/sidebar/sideba
 })
 export class AdminLayout {
   adminNav: NavItem[] = [
-    { kind: 'link', label: 'Dashboard', icon: 'space_dashboard', route: ['/admin', 'dashboard'] },
-    { kind: 'link', label: 'Shop', icon: 'store', route: ['/admin', 'shops'] },
-    { kind: 'link', label: 'Categories', icon: 'category', route: ['/admin', 'categories'] },
-    { kind: 'link', label: 'Users', icon: 'group', route: ['/admin', 'customers'] },
+    { kind: 'link', label: 'Tableau de bord', icon: 'space_dashboard', route: ['/admin', 'dashboard'] },
+    { kind: 'link', label: 'Boutiques', icon: 'store', route: ['/admin', 'shops'] },
+    { kind: 'link', label: 'Catégories', icon: 'category', route: ['/admin', 'categories'] },
+    { kind: 'link', label: 'Utilisateurs', icon: 'group', route: ['/admin', 'customers'] },
     { kind: 'link', label: 'Commissions', icon: 'paid', route: ['/admin', 'commissions'] },
   ];
 }

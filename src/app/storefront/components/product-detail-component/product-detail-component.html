@@ -3,14 +3,14 @@
     <div class="detail-header__copy">
       <h1 class="product-name">{{ product.name }}</h1>
       <a class="store-link" [routerLink]="['/manufacturers', product.shopId]">
-        <span class="store-link__label">Store</span>
+        <span class="store-link__label">Boutique</span>
         <span class="store-name">{{ product.storeName }}</span>
       </a>
     </div>
   </header>
 
   <div class="detail-shell">
-    <section class="detail-gallery-card" aria-label="Product gallery">
+    <section class="detail-gallery-card" aria-label="Galerie produit">
       <div class="carousel">
         <div class="scroller" #scroller (scroll)="onScrollerScroll()">
           <figure class="slide" *ngFor="let img of images; index as i; trackBy: trackByIndex">
@@ -18,8 +18,8 @@
           </figure>
         </div>
 
-        <button class="nav prev" type="button" (click)="prev()" [disabled]="images.length <= 1" aria-label="Previous image">&lsaquo;</button>
-        <button class="nav next" type="button" (click)="next()" [disabled]="images.length <= 1" aria-label="Next image">&rsaquo;</button>
+        <button class="nav prev" type="button" (click)="prev()" [disabled]="images.length <= 1" aria-label="Image précédente">&lsaquo;</button>
+        <button class="nav next" type="button" (click)="next()" [disabled]="images.length <= 1" aria-label="Image suivante">&rsaquo;</button>
       </div>
 
       <div class="thumbs" *ngIf="images.length > 1">
@@ -29,7 +29,7 @@
           type="button"
           (click)="scrollTo(i)"
           [class.ACTIVE]="i === ACTIVEIndex"
-          [attr.aria-label]="'Show image ' + (i + 1)"
+          [attr.aria-label]="'Afficher l image ' + (i + 1)"
         >
           <img [src]="pictureUrl + img" [alt]="product.name + ' thumbnail ' + (i + 1)" />
         </button>
@@ -38,27 +38,27 @@
 
     <aside class="detail-info-card">
       <div class="price">
-        <div class="price-label">Price</div>
-        <div class="price-value">{{ product.price | currency:'USD' }}</div>
+        <div class="price-label">Prix</div>
+        <div class="price-value">{{ product.price | currency:'EUR' }}</div>
       </div>
 
       <div class="meta">
         <div class="meta-row">
           <span class="k">Stock</span>
           <span class="v" [class.bad]="isOutOfStock">
-            {{ isOutOfStock ? 'Out of stock' : (product.stock + ' available') }}
+            {{ isOutOfStock ? 'Rupture de stock' : (product.stock + ' disponibles') }}
           </span>
         </div>
 
         <div class="meta-row">
-          <span class="k">Category</span>
+          <span class="k">Catégorie</span>
           <span class="v">{{ product.categoryName }}</span>
         </div>
       </div>
 
-      <section class="qty-panel" aria-label="Quantity selection">
+      <section class="qty-panel" aria-label="Sélection de quantité">
         <div class="qty">
-          <div class="qty-label">Quantity</div>
+          <div class="qty-label">Quantité</div>
 
           <div class="qty-control">
             <button type="button" class="qty-btn" (click)="decQty()" [disabled]="isOutOfStock || qty <= 1">-</button>
@@ -76,26 +76,26 @@
             <button type="button" class="qty-btn" (click)="incQty()" [disabled]="isOutOfStock || qty >= maxQty">+</button>
           </div>
 
-          <div class="qty-hint" *ngIf="!isOutOfStock">Max: {{ maxQty }}</div>
+          <div class="qty-hint" *ngIf="!isOutOfStock">Max : {{ maxQty }}</div>
         </div>
       </section>
 
       <div class="total">
         <span>Total</span>
-        <strong>{{ total | currency:'USD' }}</strong>
+        <strong>{{ total | currency:'EUR' }}</strong>
       </div>
 
       <button class="cta" type="button" (click)="onAddToCart()" [disabled]="isOutOfStock || isAdding">
-        @if (justAdded) {
-          Added
+          @if (justAdded) {
+          Ajoute
         } @else if (isAdding) {
-          Adding...
+          Ajout...
         } @else {
-          Add to cart
+          Ajouter au panier
         }
       </button>
 
-      <div class="note" *ngIf="isOutOfStock">Product unavailable at the moment.</div>
+      <div class="note" *ngIf="isOutOfStock">Produit indisponible pour le moment.</div>
     </aside>
   </div>
 
@@ -106,6 +106,6 @@
 
   <section class="detail-description-card product-description" *ngIf="!product.description">
     <h2>Description</h2>
-    <p>No description available for this product.</p>
+    <p>Aucune description disponible pour ce produit.</p>
   </section>
 </section>

@@ -1,11 +1,11 @@
 <app-storefront-layout class="store__content">
-      <section class="storefront-hero" aria-label="Storefront hero banner">
+      <section class="storefront-hero" aria-label="Bannière principale de la boutique">
         <div class="storefront-hero__image">
           <div class="storefront-hero__overlay">
-            <p class="storefront-hero__eyebrow">Fresh Finds</p>
+            <p class="storefront-hero__eyebrow">Nouveautés</p>
             <h1 class="storefront-hero__title">Hello Mercado</h1>
-            <p class="storefront-hero__subtitle">Curated picks for fashion, home, and everyday tech.</p>
-            <a class="storefront-hero__cta" routerLink="/">Shop now</a>
+            <p class="storefront-hero__subtitle">Une sélection soignée pour la mode, la maison et la tech du quotidien.</p>
+            <a class="storefront-hero__cta" routerLink="/">Acheter maintenant</a>
           </div>
         </div>
       </section>
@@ -23,9 +23,9 @@
 
       <section class="storefront__results">
         <div class="results__header">
-          <h2>All products</h2>
+          <h2>Tous les produits</h2>
           @if (state.loading()) {
-            <span class="results__status">Loading...</span>
+            <span class="results__status">Chargement...</span>
           }
         </div>
 

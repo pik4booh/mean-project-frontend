@@ -1,7 +1,7 @@
 <section class="page" *ngIf="vm$ | async as vm">
-  <h1 class="title">Orders (Admin)</h1>
+  <h1 class="title">Commandes (Admin)</h1>
 
-  <app-dashboard-card title="Orders received">
+  <app-dashboard-card title="Commandes recues">
     <app-admin-orders-filters
       [query]="vm.query"
       [shops]="vm.shops"

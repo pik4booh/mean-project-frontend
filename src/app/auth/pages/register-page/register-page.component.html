@@ -1,6 +1,6 @@
 <app-auth-form-layout
-  title="Create your account"
-  subtitle="Open a storefront or start shopping today."
+  title="Créez votre compte"
+  subtitle="Commencez Hello Mercado aujourd'hui."
   titleId="register-title"
 >
   <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -13,8 +13,8 @@
     <div class="field-group">
       <app-select-input
         id="register-role"
-        label="Role"
-        placeholder="Choose your role"
+        label="Type"
+        placeholder="Choisissez votre rôle"
         [options]="roleOptions"
         formControlName="role"
         [invalid]="isInvalid('role')"
@@ -29,8 +29,8 @@
     <div class="field-group">
       <app-text-input
         id="register-fullname"
-        label="Full name"
-        placeholder="Alex Johnson"
+        label="Nom complet"
+        placeholder="John Doe"
         autocomplete="name"
         formControlName="fullName"
         [invalid]="isInvalid('fullName')"
@@ -45,8 +45,8 @@
     <div class="field-group">
       <app-email-input
         id="register-email"
-        label="Email address"
-        placeholder="you@shop.com"
+        label="Adresse e-mail"
+        placeholder="email@gmail.com"
         autocomplete="email"
         formControlName="email"
         [invalid]="isInvalid('email')"
@@ -61,8 +61,8 @@
     <div class="field-group">
       <app-text-input
         id="register-phone"
-        label="Phone"
-        placeholder="+14155552671"
+        label="Téléphone"
+        placeholder="+261000000000"
         autocomplete="tel"
         inputMode="tel"
         formControlName="phone"
@@ -78,8 +78,8 @@
     <div class="field-group">
       <app-password-input
         id="register-password"
-        label="Password"
-        placeholder="Create a password"
+        label="Mot de passe"
+        placeholder="Créez un mot de passe"
         autocomplete="new-password"
         formControlName="password"
         [invalid]="isInvalid('password')"
@@ -92,14 +92,14 @@
     </div>
 
     <app-submit-button
-      label="Create account"
+      label="Créer un compte"
       [loading]="loading()"
       [disabled]="isSubmitDisabled()"
     ></app-submit-button>
   </form>
 
   <p class="auth-footer">
-    Already have an account?
-    <a routerLink="/auth/login">Sign in</a>
+    Vous avez déjà un compte ?
+    <a routerLink="/auth/login">Se connecter</a>
   </p>
 </app-auth-form-layout>

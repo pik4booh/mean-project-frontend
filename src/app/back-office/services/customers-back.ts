@@ -81,20 +81,20 @@ export class CustomersBackService {
   readonly vm$ = combineLatest({
     kpi1: this.customers$.pipe(
       map((customers): KpiCard => ({
-        title: 'Customers',
+        title: 'Clients',
         percent: customers.length,
-        subtitle: 'Unique buyers for this shop',
-        linkText: 'Customers list',
+        subtitle: 'Acheteurs uniques pour cette boutique',
+        linkText: 'Liste des clients',
       }))
     ),
     kpi2: this.customers$.pipe(
       map((customers): KpiCard => {
         const repeatCustomers = customers.filter((customer) => customer.totalOrders > 1).length;
         return {
-          title: 'Returning customers',
+          title: 'Clients fideles',
           percent: repeatCustomers,
-          subtitle: 'Customers with more than one order',
-          linkText: 'Orders history',
+          subtitle: 'Clients avec plus d une commande',
+          linkText: 'Historique des commandes',
         };
       })
     ),

@@ -1,45 +1,45 @@
 <div class="overlay" (click)="onBackdropClick()">
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
-      <h3>Create commission</h3>
-      <button class="x" type="button" (click)="cancel.emit()">✕</button>
+      <h3>Créer une commission</h3>
+      <button class="x" type="button" (click)="cancel.emit()">x</button>
     </div>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="grid">
         <label class="field full">
-          <span>Name</span>
-          <input formControlName="name" placeholder="Ex: Default Commission" />
+          <span>Nom</span>
+          <input formControlName="name" placeholder="Ex. : Commission par défaut" />
         </label>
 
         <label class="field">
-          <span>Threshold (USD)</span>
+          <span>Seuil (USD)</span>
           <input type="number" formControlName="thresholdEur" />
         </label>
 
         <label class="field">
-          <span>Under threshold (USD)</span>
+          <span>Sous le seuil (USD)</span>
           <input type="number" formControlName="fixedUnderUsd" />
         </label>
 
         <label class="field full">
-          <span>Above threshold (%)</span>
+          <span>Au-dessus du seuil (%)</span>
           <input type="number" formControlName="percentAbove" />
         </label>
 
         <label class="check full">
           <input type="checkbox" formControlName="activateNow" />
-          <span>Activate this commission now (and disable others)</span>
+          <span>Activer cette commission maintenant (et désactiver les autres)</span>
         </label>
 
         <div class="hint full">
-          Rule example: if total &lt; threshold → fixed USD, else → percentage of order.
+          Exemple : si le total est inférieur au seuil, frais fixes en USD ; sinon, pourcentage de la commande.
         </div>
       </div>
 
       <div class="actions">
-        <button type="button" class="btn ghost" (click)="cancel.emit()">Cancel</button>
-        <button type="submit" class="btn primary">Create</button>
+        <button type="button" class="btn ghost" (click)="cancel.emit()">Annuler</button>
+        <button type="submit" class="btn primary">Créer</button>
       </div>
     </form>
   </div>

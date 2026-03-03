@@ -1,8 +1,8 @@
 <div class="overlay" (click)="onBackdropClick()">
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
-      <h3 class="title">Create shop</h3>
-      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Close dialog">&times;</button>
+      <h3 class="title">Créer une boutique</h3>
+      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Fermer la fenêtre">&times;</button>
     </div>
 
     <div class="alert" *ngIf="submitError">{{ submitError }}</div>
@@ -10,7 +10,7 @@
     <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="img-block">
         <div class="preview preview--product" [class.preview--empty]="!(previewUrl || defaultLogoUrl)">
-          <img *ngIf="previewUrl || defaultLogoUrl; else emptyPreview" [src]="previewUrl || defaultLogoUrl" alt="Shop logo preview" />
+          <img *ngIf="previewUrl || defaultLogoUrl; else emptyPreview" [src]="previewUrl || defaultLogoUrl" alt="Aperçu du logo de la boutique" />
         </div>
 
         <div class="img-actions">
@@ -21,17 +21,17 @@
             (dragleave)="onDragLeave($event)"
             (drop)="onDrop($event)"
           >
-            <p class="dropzone-title">Add shop logo</p>
+            <p class="dropzone-title">Ajouter le logo de la boutique</p>
             <p class="dropzone-hint">PNG, JPG, WEBP | Max 2MB</p>
 
             <div class="dropzone-actions">
               <label class="file-btn" [class.is-disabled]="submitting">
-                {{ hasCustomLogo ? 'Replace logo' : 'Upload logo' }}
+                {{ hasCustomLogo ? 'Remplacer le logo' : 'Téléverser le logo' }}
                 <input type="file" accept="image/*" (change)="onPickFile($event)" [disabled]="submitting" hidden />
               </label>
 
               <button type="button" class="btn ghost" (click)="onRemoveLogo()" [disabled]="!hasCustomLogo || submitting">
-                Remove logo
+                Supprimer le logo
               </button>
             </div>
 
@@ -42,17 +42,17 @@
         </div>
       </div>
       <ng-template #emptyPreview>
-        <div class="preview-placeholder">No image selected</div>
+        <div class="preview-placeholder">Aucune image sélectionnée</div>
       </ng-template>
 
       <div class="grid">
         <label class="field">
-          <span>Name</span>
+          <span>Nom</span>
           <input formControlName="name" [disabled]="submitting" />
         </label>
 
         <label class="field">
-          <span>Category</span>
+          <span>Catégorie</span>
           <select formControlName="categoryId" [disabled]="submitting">
             <option *ngFor="let c of categories" [value]="c._id">{{ c.name }}</option>
           </select>
@@ -64,24 +64,24 @@
         </label>
 
         <label class="field">
-          <span>Opening Hours</span>
-          <input formControlName="openingHours" placeholder="Mon-Sat 09:00-18:00" [disabled]="submitting" />
+          <span>Heures d'ouverture</span>
+          <input formControlName="openingHours" placeholder="Lun-Sam 09:00-18:00" [disabled]="submitting" />
         </label>
       </div>
 
       <div class="grid" formGroupName="contact">
         <label class="field">
-          <span>Contact Phone</span>
+          <span>Téléphone de contact</span>
           <input formControlName="phone" [disabled]="submitting" />
         </label>
 
         <label class="field">
-          <span>Contact Email</span>
+          <span>E-mail de contact</span>
           <input formControlName="email" type="email" [disabled]="submitting" />
         </label>
 
         <label class="field field--full">
-          <span>Contact Address</span>
+          <span>Adresse de contact</span>
           <input formControlName="address" [disabled]="submitting" />
         </label>
       </div>
@@ -98,15 +98,15 @@
         </label>
 
         <label class="field">
-          <span>Website</span>
+          <span>Site web</span>
           <input formControlName="website" [disabled]="submitting" />
         </label>
       </div>
 
       <div class="actions">
-        <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Cancel</button>
+        <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Annuler</button>
         <button type="submit" class="btn primary" [disabled]="submitting">
-          {{ submitting ? 'Submitting...' : 'Create' }}
+          {{ submitting ? 'Envoi...' : 'Créer' }}
         </button>
       </div>
     </form>

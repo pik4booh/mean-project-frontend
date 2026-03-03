@@ -10,7 +10,7 @@ export const routes: Routes = [
 	{
 		path: 'forbidden',
 		loadComponent: () => import('./core/pages/forbidden-page/forbidden-page.component').then(m => m.ForbiddenPageComponent),
-		title: 'Forbidden'
+		title: 'Accès refusé'
 	},
 	{
 		path: '',

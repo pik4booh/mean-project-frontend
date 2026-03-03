@@ -1,7 +1,7 @@
 <section class="page" *ngIf="vm$ | async as vm">
-  <h1 class="title">Orders</h1>
+  <h1 class="title">Commandes</h1>
   <div class="card" *ngIf="noShopMessage">{{ noShopMessage }}</div>
-  <div class="card" *ngIf="loading">Loading orders...</div>
+  <div class="card" *ngIf="loading">Chargement des commandes...</div>
   <div class="card" *ngIf="errorMessage">{{ errorMessage }}</div>
 
   <div class="grid">

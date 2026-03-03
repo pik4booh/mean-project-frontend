@@ -17,7 +17,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
   ]
 })
 export class AuthEmailInputComponent implements ControlValueAccessor {
-  readonly label = input<string>('Email');
+  readonly label = input<string>('E-mail');
   readonly id = input<string>('email');
   readonly placeholder = input<string>('you@example.com');
   readonly autocomplete = input<string>('email');

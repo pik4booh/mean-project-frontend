@@ -20,13 +20,13 @@
       </button>
 
       <p class="category-hint">
-        {{ category.status === 'active' ? 'Available in the catalog and visible to shops.' : 'Hidden from active use until re-enabled.' }}
+        {{ category.status === 'active' ? 'Disponible dans le catalogue et visible pour les boutiques.' : 'Masquée jusqu à sa réactivation.' }}
       </p>
     </div>
 
     <div class="category-card__actions">
       <button class="action action-edit" type="button" (click)="edit.emit(category)">
-        Edit
+        Modifier
       </button>
 
       <button class="action action-toggle" type="button" (click)="toggle.emit(category.id)">
@@ -37,5 +37,5 @@
 </div>
 
 <ng-template #empty>
-  <div class="empty">No categories found.</div>
+  <div class="empty">Aucune catégorie trouvée.</div>
 </ng-template>

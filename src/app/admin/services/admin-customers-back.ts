@@ -98,16 +98,16 @@ export class AdminCustomersBackService {
     map(({ allCustomers, ...vm }) => ({
       ...vm,
       kpi1: {
-        title: 'Users',
+        title: 'Utilisateurs',
         percent: allCustomers.length,
-        subtitle: 'All registered users',
-        linkText: 'Users list',
+        subtitle: 'Tous les utilisateurs inscrits',
+        linkText: 'Liste des utilisateurs',
       },
       kpi2: {
-        title: 'Shop owners',
+        title: 'Propriétaires de boutiques',
         percent: allCustomers.filter((customer) => customer.role === 'SHOP').length,
-        subtitle: 'Accounts with SHOP role',
-        linkText: 'Role breakdown',
+        subtitle: 'Comptes avec le rôle SHOP',
+        linkText: 'Répartition des rôles',
       },
     }))
   );

@@ -1,6 +1,6 @@
 <app-auth-form-layout
   title="Hello Mercado"
-  subtitle="Sign in to your shop dashboard."
+  subtitle="Bienvenue! Connectez-vous."
   titleId="login-title"
 >
   <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -13,8 +13,8 @@
     <div class="field-group">
       <app-email-input
         id="login-email"
-        label="Email address"
-        placeholder="you@shop.com"
+        label="Adresse e-mail"
+        placeholder="email@gmail.com"
         autocomplete="email"
         formControlName="email"
         [invalid]="isInvalid('email')"
@@ -29,8 +29,8 @@
     <div class="field-group">
       <app-password-input
         id="login-password"
-        label="Password"
-        placeholder="Enter your password"
+        label="Mot de passe"
+        placeholder="Saisissez votre mot de passe"
         autocomplete="current-password"
         formControlName="password"
         [invalid]="isInvalid('password')"
@@ -43,14 +43,14 @@
     </div>
 
     <app-submit-button
-      label="Sign in"
+      label="Se connecter"
       [loading]="loading()"
       [disabled]="isSubmitDisabled()"
     ></app-submit-button>
   </form>
 
   <p class="auth-footer">
-    No account yet?
-    <a routerLink="/auth/register">Create one</a>
+    Vous n'avez pas encore de compte ?
+    <a routerLink="/auth/register">Créer un compte</a>
   </p>
 </app-auth-form-layout>

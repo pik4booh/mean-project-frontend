@@ -31,9 +31,9 @@
         <span class="product-card__price">{{ item.price | currency }}</span>
         <nz-tag [nzColor]="item.stock > 0 ? 'blue' : 'red'">
           @if (item.stock > 0) {
-            In stock: {{ item.stock }}
+            En stock : {{ item.stock }}
           } @else {
-            Out of stock
+            Rupture de stock
           }
         </nz-tag>
       </div>
@@ -48,9 +48,9 @@
       >
         <span>
           @if (justAdded()) {
-            Added
+            Ajoute
           } @else {
-            Add to cart
+            Ajouter au panier
           }
         </span>
       </button>

@@ -17,12 +17,12 @@
     </a>
 
     @if (user()) {
-      <span class="navbar__greeting">Hi, {{ user()!.fullName }}</span>
+      <span class="navbar__greeting">Bonjour, {{ user()!.fullName }}</span>
       <button nz-button nzType="default" type="button" (click)="onLogout()">
-        Logout
+        Déconnexion
       </button>
     } @else {
-      <a nz-button nzType="primary" routerLink="/auth/login">Sign In</a>
+      <a nz-button nzType="primary" routerLink="/auth/login">Connexion</a>
     }
   </div>
 </header>

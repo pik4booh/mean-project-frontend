@@ -9,12 +9,12 @@
     </app-dashboard-card>
   </div>
 
-  <app-dashboard-card title="Customers">
+  <app-dashboard-card title="Clients">
     <div card-right class="sort">
-      <span>Sort by</span>
+      <span>Trier par</span>
       <select [ngModel]="vm.query.sort" (ngModelChange)="setSort($event)">
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
+        <option value="newest">Plus recents</option>
+        <option value="oldest">Plus anciens</option>
       </select>
     </div>
 
@@ -24,7 +24,7 @@
         [ngModel]="vm.query.search"
         (ngModelChange)="setSearch($event)"
         [ngModelOptions]="{ standalone: true }"
-        placeholder="Search customer..."
+        placeholder="Rechercher un client..."
       />
     </div>
 
@@ -37,5 +37,5 @@
 </section>
 
 <ng-template #loadingState>
-  <div style="padding: 18px;">{{ errorMessage || (loading ? 'Loading...' : 'Loading...') }}</div>
+  <div style="padding: 18px;">{{ errorMessage || (loading ? 'Chargement...' : 'Chargement...') }}</div>
 </ng-template>

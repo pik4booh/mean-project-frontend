@@ -12,7 +12,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 })
 export class ProductGridComponent {
   readonly products = input<Product[]>([]);
-  readonly emptyMessage = input<string>('No products found.');
+  readonly emptyMessage = input<string>('Aucun produit trouve.');
   readonly addingProductId = input<string | null>(null);
   readonly addedProductId = input<string | null>(null);
   readonly addToCart = output<string>();

@@ -4,7 +4,7 @@
       <img
         class="logo"
         [src]="boutique.logoUrl"
-        [alt]="'Logo of ' + boutique.nom"
+        [alt]="'Logo de ' + boutique.nom"
         loading="lazy"
       />
 
@@ -13,13 +13,13 @@
 
         <ul class="contact">
           <li *ngIf="boutique.contact.telephone">
-            <strong>Phone:</strong> {{ boutique.contact.telephone }}
+            <strong>Téléphone :</strong> {{ boutique.contact.telephone }}
           </li>
           <li *ngIf="boutique.contact.email">
-            <strong>Email:</strong> {{ boutique.contact.email }}
+            <strong>E-mail :</strong> {{ boutique.contact.email }}
           </li>
           <li *ngIf="boutique.contact.adresse">
-            <strong>Address:</strong> {{ boutique.contact.adresse }}
+            <strong>Adresse :</strong> {{ boutique.contact.adresse }}
           </li>
         </ul>
       </div>
@@ -30,5 +30,5 @@
 </ng-container>
 
 <ng-template #loading>
-  <p>Loading...</p>
+  <p>Chargement...</p>
 </ng-template>

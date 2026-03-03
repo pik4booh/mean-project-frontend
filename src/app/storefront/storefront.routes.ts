@@ -14,51 +14,51 @@ export const STOREFRONT_ROUTES: Routes = [
   {
     path: 'history',
     component: HistoryPage,
-    title: 'History',
+    title: 'Historique',
     canMatch: [authGuard, roleGuard],
     data:{ roles: ['BUYER'] }
   },
   {
     path: 'orders',
     component: OrderPage,
-    title: 'Orders',
+    title: 'Commandes',
     canMatch: [authGuard, roleGuard],
     data:{ roles: ['BUYER'] }
   },
   {
     path: 'checkout',
     component: CheckoutPage,
-    title: 'Checkout',
+    title: 'Paiement',
     canMatch: [authGuard, roleGuard],
     data:{ roles: ['BUYER'] }
   },
   {
     path: 'cart',
     component: CartPage,
-    title: 'Cart',
+    title: 'Panier',
     canMatch: [authGuard, roleGuard],
     data:{ roles: ['BUYER'] }
   },
   { path: 'product/:id',
     component: ProductDetailsPage,
-    title: 'Product Details',
+    title: 'Détails du produit',
     canMatch: [authGuard, roleGuard],
     data:{ roles: ['BUYER'] }
   },
   {
     path: 'manufacturers/:shopId',
     component: ManufacturePage,
-    title: 'Manufacturer Profile'
+    title: 'Profil de la boutique'
   },
   {
     path: 'manufacturers',
     component: ManufacturePage,
-    title: 'Manufacturers'
+    title: 'Boutiques'
   },
   {
     path: '',
     component: StorefrontPageComponent,
-    title: 'Storefront'
+    title: 'Boutique'
   }
 
 ];

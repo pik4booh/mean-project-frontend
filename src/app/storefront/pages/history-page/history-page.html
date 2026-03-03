@@ -2,15 +2,15 @@
   <ng-container>
     <app-checkout-header
       [tabs]="[
-        { label: 'Payment', link: ['/cart'] },
-        { label: 'Order', link: ['/orders'] },
-        { label: 'History', link: ['/history'] }
+        { label: 'Paiement', link: ['/cart'] },
+        { label: 'Commande', link: ['/orders'] },
+        { label: 'Historique', link: ['/history'] }
       ]"
     ></app-checkout-header>
     <app-history></app-history>
   </ng-container>
 
   <ng-template #notFound>
-    <p>Product not found.</p>
+    <p>Produit introuvable.</p>
   </ng-template>
 </app-details-layout>

@@ -153,7 +153,7 @@ export class AdminCommissionsBackService {
   deactivateAll(): Observable<FeeMutationResult> {
     const active = this.commissionsSubject.value.find((commission) => commission.active);
     if (!active) {
-      return of({ message: 'No active commission to deactivate.' });
+      return of({ message: 'Aucune commission active à désactiver.' });
     }
 
     return this.updateFeeStatus(active._id, 'INACTIVE');
@@ -250,6 +250,6 @@ export class AdminCommissionsBackService {
 
   private readErrorMessage(err: unknown): string {
     const error = err as { error?: { error?: string; message?: string; details?: string }; message?: string };
-    return error?.error?.error || error?.error?.message || error?.error?.details || error?.message || 'Request failed';
+    return error?.error?.error || error?.error?.message || error?.error?.details || error?.message || 'Échec de la requête';
   }
 }

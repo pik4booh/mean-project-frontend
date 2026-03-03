@@ -2,11 +2,11 @@
   <div class="modal" (click)="$event.stopPropagation()">
     <div class="head">
       <h3 class="title">{{ title }}</h3>
-      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Close dialog">&times;</button>
+      <button class="x" type="button" (click)="cancel.emit()" [disabled]="submitting" aria-label="Fermer la fenêtre">&times;</button>
     </div>
 
     <div class="alert" *ngIf="errorMessage">{{ errorMessage }}</div>
-    <div class="alert info" *ngIf="loading">Loading...</div>
+    <div class="alert info" *ngIf="loading">Chargement...</div>
 
     <ng-container *ngIf="isDetailsMode; else editForm">
       <div class="details" *ngIf="product as p">
@@ -28,23 +28,23 @@
         </div>
 
         <div class="details-grid">
-          <div><span>Name</span><strong>{{ p.name }}</strong></div>
-          <div><span>Category</span><strong>{{ p.categoryName || p.categoryId }}</strong></div>
-          <div><span>Status</span><strong>{{ p.status }}</strong></div>
-          <div><span>Price</span><strong>{{ p.price | number:'1.0-2' }}</strong></div>
+          <div><span>Nom</span><strong>{{ p.name }}</strong></div>
+          <div><span>Catégorie</span><strong>{{ p.categoryName || p.categoryId }}</strong></div>
+          <div><span>Statut</span><strong>{{ p.status }}</strong></div>
+          <div><span>Prix</span><strong>{{ p.price | number:'1.0-2' }}</strong></div>
           <div><span>Stock</span><strong>{{ p.stock }}</strong></div>
         </div>
 
         <div class="field">
           <span>Description</span>
-          <div class="details-desc">{{ p.description || 'No description' }}</div>
+          <div class="details-desc">{{ p.description || 'Aucune description' }}</div>
         </div>
       </div>
 
       <div class="actions">
-        <button type="button" class="btn ghost" (click)="cancel.emit()">Close</button>
+        <button type="button" class="btn ghost" (click)="cancel.emit()">Fermer</button>
         <button type="button" class="btn primary" (click)="openEditFromDetails()" *ngIf="product">
-          Edit
+          Modifier
         </button>
       </div>
     </ng-container>
@@ -53,17 +53,17 @@
       <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="img-block">
           <div class="preview preview--product" [class.preview--empty]="!primaryPreviewImage">
-            <img *ngIf="primaryPreviewImage; else emptyPreview" [src]="primaryPreviewSrc" alt="Product image preview" />
+            <img *ngIf="primaryPreviewImage; else emptyPreview" [src]="primaryPreviewSrc" alt="Aperçu de l'image du produit" />
           </div>
 
           <div class="img-actions">
             <div class="dropzone">
-              <p class="dropzone-title">Add product images</p>
-              <p class="dropzone-hint">PNG, JPG, WEBP | Multiple files supported</p>
+              <p class="dropzone-title">Ajouter des images produit</p>
+              <p class="dropzone-hint">PNG, JPG, WEBP | Fichiers multiples pris en charge</p>
 
               <div class="dropzone-actions">
                 <label class="file-btn" [class.is-disabled]="submitting">
-                  {{ combinedImages.length ? 'Replace or add images' : 'Upload images' }}
+                  {{ combinedImages.length ? 'Remplacer ou ajouter des images' : 'Téléverser des images' }}
                   <input
                     type="file"
                     accept="image/*"
@@ -79,39 +79,39 @@
 
               <div class="thumbs-edit" *ngIf="retainedImages.length || newImages.length; else noImages">
                 <div class="thumb-card" *ngFor="let img of retainedImages; index as i">
-                  <img [src]="pictureUrl + img" alt="existing image" />
-                  <button type="button" class="remove-thumb" (click)="removeExistingImage(i)" [disabled]="submitting" aria-label="Remove image">&times;</button>
+                  <img [src]="pictureUrl + img" alt="image existante" />
+                  <button type="button" class="remove-thumb" (click)="removeExistingImage(i)" [disabled]="submitting" aria-label="Supprimer l'image">&times;</button>
                 </div>
                 <div class="thumb-card" *ngFor="let item of newImages; index as i">
                   <img [src]="item.previewUrl" [alt]="item.name" />
-                  <button type="button" class="remove-thumb" (click)="removeNewImage(i)" [disabled]="submitting" aria-label="Remove image">&times;</button>
+                  <button type="button" class="remove-thumb" (click)="removeNewImage(i)" [disabled]="submitting" aria-label="Supprimer l'image">&times;</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <ng-template #emptyPreview>
-          <div class="preview-placeholder">No image selected</div>
+          <div class="preview-placeholder">Aucune image sélectionnée</div>
         </ng-template>
         <ng-template #noImages>
-          <div class="empty-thumb">No image selected</div>
+          <div class="empty-thumb">Aucune image sélectionnée</div>
         </ng-template>
 
         <div class="grid">
           <label class="field">
-            <span>Name</span>
+            <span>Nom</span>
             <input formControlName="name" [disabled]="submitting" />
           </label>
 
           <label class="field">
-            <span>Category</span>
+            <span>Catégorie</span>
             <select formControlName="categoryId" [disabled]="submitting">
               <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
             </select>
           </label>
 
           <label class="field">
-            <span>Status</span>
+            <span>Statut</span>
             <select formControlName="status" [disabled]="submitting">
               <option value="ACTIVE">ACTIVE</option>
               <option value="INACTIVE">INACTIVE</option>
@@ -119,7 +119,7 @@
           </label>
 
           <label class="field">
-            <span>Price</span>
+            <span>Prix</span>
             <input type="number" formControlName="price" [disabled]="submitting" />
           </label>
 
@@ -135,9 +135,9 @@
         </div>
 
         <div class="actions">
-          <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Cancel</button>
+          <button type="button" class="btn ghost" (click)="cancel.emit()" [disabled]="submitting">Annuler</button>
           <button type="submit" class="btn primary" [disabled]="submitting || loading">
-            {{ submitting ? 'Submitting...' : (mode === 'create' ? 'Create' : 'Save') }}
+            {{ submitting ? 'Envoi...' : (mode === 'create' ? 'Créer' : 'Enregistrer') }}
           </button>
         </div>
       </form>
